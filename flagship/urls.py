@@ -19,6 +19,10 @@ from django.contrib.auth import views as auth_views
 
 from iam import views as accounts_views
 
+"""!!!!THESE 2 from's ARE NECESSARY FOR DEVELOPMENT SERVER!!!!"""
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', include('pages.urls')),
     path('admin/', admin.site.urls),
@@ -52,3 +56,17 @@ urlpatterns += [
     path('settings/password/done', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'),
          name='password_change_done'),
 ]
+
+urlpatterns += [
+    path('forums/', include('forums.urls')),
+]
+
+urlpatterns += [
+    path('api/', include('api.urls')),
+]
+
+
+"""!!!!THIS IS NECESSARY TO RENDER MEDIA FILES FROM DEVELOPMENT SERVER!!!"""
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)

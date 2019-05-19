@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'widget_tweaks',
     
+    'api',
     'iam',
     'pages',
     'forums',

@@ -1,22 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'base_home.html' %}
 
 {% load humanize %}
 
-{% block breadcrumb %}
-	<li class="breadcrumb-item active">Home</li>
+{% load static %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="{% static 'css/hero.css' %}">
 {% endblock %}
 
-{% block content %}
-	<table class="table">
-		<thead class="thead-inverse">
-			<tr>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Hello World!</td>
-			</tr>
-		</tbody>
-	</table>
+{% block page_content %}
+	<div class="row justify-content-center">
+		<div class="col-lg-4 col-md-6 col-sm-8">
+			<div class="card">
+				<div class="card-body">
+					<p>Hello World</p>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

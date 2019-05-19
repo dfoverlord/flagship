@@ -1,0 +1,151 @@
+.hero {
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	position: relative;
+}
+
+.hero::before {
+	background-image: url(../img/background-320x212.jpg);
+	background-size: cover;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -2;
+	opacity: 0.4;
+}
+
+.hero::after {
+	/* background-color: #563d7c; THIS IS REDDISH HUE */
+	/* background-color: #5C97FF; THIS IS BLUISH HUE */
+	background-color: #004d64;  /* THIS IS A DARKER BLUISH HUE */
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0.4;
+}
+
+.not-hero {
+	width: 100vw;
+	height: 10em;
+}
+
+.not-hero-message {
+	color: #fff;
+	text-shadow: #343a40 2px 2px;
+	min-width: 50%;
+	min-height: 7em;
+}
+
+.hero-message {
+	color: #fff;
+	text-shadow: #343a40 2px 2px;
+	min-width: 100%;
+	min-height: 12em;
+	position: relative;
+}
+
+.hero-message::before {
+	content: "";
+	display: block;
+	position: absolute;
+	margin-left: 0;
+	min-width: 100%;
+	min-height: 12em;
+	z-index: -1;
+	opacity: 0.4;
+	background-color: #343a40;
+}
+
+.hero-title,
+.hero-sub-title {
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+
+.hero-title {
+	margin: 3% 0;
+	text-transform: uppercase;
+}
+
+@media(min-width:1024px) {
+	.hero-message {
+		min-width: 50%;
+		min-height: 12em;
+	}
+	.hero-message::before {
+		margin-left: 25%;
+		min-width: 50%;
+		min-height: 12em;
+	}
+}
+
+@media (min-width: 320px) {
+	.hero::before {
+		background-image: url(../img/background-460x305.jpg);
+	}
+}
+
+@media (min-width: 460px) {
+	.hero::before {
+		background-image: url(../img/background-720x477.jpg);
+	}
+}
+
+@media (min-width: 720px) {
+	.hero::before {
+		background-image: url(../img/background-980x649.jpg);
+	}
+}
+
+@media (min-width: 980px) {
+	.hero::before {
+		background-image: url(../img/background-1240x821.jpg);
+	}
+}
+
+@media (min-width: 1240px) {
+	.hero::before {
+		background-image: url(../img/background-1500x993.jpg);
+	}
+}
+
+@media (min-width: 1500px) {
+	.hero::before {
+		background-image: url(../img/background-1760x1166.jpg);
+	}
+}
+
+@media (min-width: 1760px) {
+	.hero::before {
+		background-image: url(../img/background-1920x1271.jpg);
+	}
+}
+
+
+.hero2 {
+	background: linear-gradient(45deg, rgba(255,175,189,.7), rgba(100,216,243,.7), rgba(234,236,198,.7), rgba(245,146,176,.7), rgba(52,219,216,.7)) 0 0 / 1000% no-repeat, url(../img/background-1920x1271.jpg) 0 0 /cover no-repeat;
+	-webkit-animation: gradientAnimation 40s ease infinite;
+	animation: gradientAnimation 40s ease infinite;
+}
+@-webkit-keyframes gradientAnimation {
+	0%   { background-position: 0% 30%, 0 0;}
+	50%  { background-position: 100% 70%, 0 0;}
+	100% { background-position: 0% 30%, 0 0;}
+}
+@keyframes gradientAnimation {
+	0%   { background-position: 0% 30%, 0 0;}
+	50%  { background-position: 100% 70%, 0 0;}
+	100% { background-position: 0% 30%, 0 0;}
+}

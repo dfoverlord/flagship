@@ -51,6 +51,7 @@ class MyProfileTests(MyProfileTestCase):
        
 
 class LoginRequiredMyProfileTests(TestCase):
+    ''' A test case to validate redirection '''
     def test_redirection(self):
         url = reverse('my_profile')
         login_url = reverse('login')

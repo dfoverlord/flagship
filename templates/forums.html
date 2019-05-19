@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block breadcrumb %}
+	<li class="breadcrumb-item active">Forums</li>
+{% endblock %}
+
+{% block page_content %}
+	<table class="table">
+		<thead class="thead-inverse">
+			<tr>
+				<th>Forums</th>
+				<th>Posts</th>
+				<th>Topics</th>
+				<th>Last Post</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for forum in forums %}
+				<tr>
+					<td>
+						<a href="{% url 'forum_topics' forum.pk %}">{{ forum.name }}</a>
+						<small class="text-muted d-block">{{ forum.description }}</small>
+					</td>
+					<td class="align-middle">
+						{{ forum.get_posts_count }}
+					</td>
+					<td class="align-middle">
+						{{ forum.topics.count }}
+					</td>
+					<td class="align-middle">
+						{% with post=forum.get_last_post %}
+							{% if post %}
+								<small>
+									<a href="{% url 'topic_posts' forum.pk post.topic.pk %}">
+									  By {{ post.created_by.username }} {{ post.created_at|naturaltime }}
+									</a>
+								</small>
+							{% else %}
+								<small class="text-muted">
+									<em>No posts yet.</em>
+								</small>
+							{% endif %}
+						{% endwith %}
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

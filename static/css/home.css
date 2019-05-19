@@ -1,7 +1,6 @@
 html,
 body {
 	height: 100%;
-	background-image: url(../img/subtle_dots.png);
 }
 
 .navbar-brand {
@@ -31,3 +30,4 @@ footer {
 	background-color: #e9ecef;
 	position: relative;
 }
+
