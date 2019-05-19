@@ -61,7 +61,7 @@ def new_topic(request, pk):
         if form.is_valid():
             topic = form.save(commit=False)
             topic.forum = forum
-            topic.starter = request.user
+            topic.creator = request.user
             topic.save()
             Post.objects.create(
                 message=form.cleaned_data.get('message'),

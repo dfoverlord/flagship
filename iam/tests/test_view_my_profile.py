@@ -8,7 +8,7 @@ from ..views import UserUpdateView
 class MyProfileTestCase(TestCase):
     def setUp(self):
         self.username = 'jack'
-        self.password = 'C4@n63Th!sP@55w0rdN0w'
+        self.password = '123abc'
         self.user = User.objects.create_user(username=self.username, email='jack@sparrow.com', password=self.password)
         self.url = reverse('my_profile')
         

@@ -17,10 +17,10 @@ class Forum(models.Model):
         return self.name
     
     def get_posts_count(self):
-        return Post.objects.filter(topic__board=self).count()
+        return Post.objects.filter(topic__forum=self).count()
     
     def get_last_post(self):
-        return Post.objects.filter(topic__board=self).order_by('-created_at').first()
+        return Post.objects.filter(topic__forum=self).order_by('-created_at').first()
     
     
 class Topic(models.Model):

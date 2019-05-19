@@ -10,7 +10,7 @@ class TopicPostsTests(TestCase):
     def setUp(self):
         forum = Forum.objects.create(name='Digital Facets', description='Digital Facets Forum.')
         user = User.objects.create_user(username='jack', email='jack@sparrow.com', password='123')
-        topic = Topic.objects.create(subject='Hello, world', forum=forum, starter=user)
+        topic = Topic.objects.create(subject='Hello, world', forum=forum, creator=user)
         Post.objects.create(message='Lorem ipsum dolor sit amet', topic=topic, created_by=user)
         url = reverse('topic_posts', kwargs={'pk': forum.pk, 'topic_pk': topic.pk})
         self.response = self.client.get(url)

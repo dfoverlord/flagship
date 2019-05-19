@@ -12,11 +12,11 @@ class ReplyTopicTestCase(TestCase):
     Base test case to be used in all `reply_topic` view tests
     '''
     def setUp(self):
-        self.forum = Forumobjects.create(name='Digital Facets', description='Digital Facets Forum.')
+        self.forum = Forum.objects.create(name='Digital Facets', description='Digital Facets Forum.')
         self.username = 'jack'
         self.password = '123'
         user = User.objects.create_user(username=self.username, email='jack@sparrow.com', password=self.password)
-        self.topic = Topic.objects.create(subject='Hello, world', forum=self.forum, starter=user)
+        self.topic = Topic.objects.create(subject='Hello, world', forum=self.forum, creator=user)
         Post.objects.create(message='Lorem ipsum dolor sit amet', topic=self.topic, created_by=user)
         self.url = reverse('reply_topic', kwargs={'pk': self.forum.pk, 'topic_pk': self.topic.pk})
 

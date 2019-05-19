@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django import forms
 
-from ..templatetags.form_tags import field_type, input_class
+from pages.templatetags.form_tags import field_type, input_class
 
 # Create your tests here.
 class ExampleForm(forms.Form):
@@ -25,7 +25,7 @@ class InputClassTests(TestCase):
         
     ''' A test case to verify bound fields are valid '''
     def test_valid_bound_field(self):
-        form = ExampleForm({'name': 'jack', 'sparrow': '123'})  # bound form (field + data)
+        form = ExampleForm({'name': 'jack', 'password': '123'})  # bound form (field + data)
         self.assertEquals('form-control is-valid', input_class(form['name']))
         self.assertEquals('form-control ', input_class(form['password']))
         
