@@ -1,34 +1,39 @@
 {% load static %}<!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{% block title %}Digital Facets{% endblock %}</title>
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata|Quicksand|Raleway:400,400i&display=swap&text=Digital%20Facets" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" rel="stylesheet">
 		<link rel="stylesheet" href="{% static 'css/app.css' %}">
 		{% block stylesheet %}
 		{% endblock %}
 	</head>
-	<body>
+	<body data-spy="scroll" data-target="topNav">
 		{% block body %}
-			
 			<div class="wrapper">
-				{% include 'includes/header.html' %}
 				<div class="container">
-					<ol class="breadcrumb my-4">
+					<!-- This is a custom header -->
+					{% include 'includes/header.html' %}
+					<ol class="breadcrumb-dot my-4">
 						{% block breadcrumb %}
 						{% endblock %}
 					</ol>
+					{% block messages %}
+					{% endblock %}
 					{% block page_content %}
 					{% endblock %}
 				</div>
 				<div class="push"></div>
 			</div>
 			<footer>
-				<div class="container">
-					<!-- Add a powered by footer which includes a link and graphic -->
+				<div class="container-fluid py5">
+					<!-- This is a custom footer -->
 					{% include 'includes/footer.html' %}
+					<!-- Add a powered by footer which includes a link and graphic -->					
 				</div>
 			</footer>
 		{% endblock body %}
@@ -36,6 +41,9 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js"></script>
+		<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 		
 		{% block javascript %}
 		{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base_iam.html' %}
+
+{% block title %}You have been logged out{% endblock %}
+
+{% block page_content %}
+	<div class="border-top pt-3">
+		<small class="text-muted">
+			<a href="{% url 'login' %}">Sign in again</a>
+		</small>
+	</div>
+{% endblock %}

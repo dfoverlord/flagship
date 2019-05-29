@@ -1,16 +1,87 @@
+/* 
+NOTES:
+
++To change header background modify {.header.background-color}
++To chnage header text modify {.header.color}
++{Header-content, .inner, p} is set to #222 (black)
+
++To change navbar background color modify {#topNav.background-color} which is currently #FFF (white)
++To change navbar branding modify {@media(min-width:48em) -> .navbar-brand.color}
++To change navbar items modify {@media(min-width:48em) -> .navbar .navbar-nav > li > a, .navbar .navbar-nav> li > a:focus.color} which is currently set to #001A33 (medium dark blue)
++To change navbar "hover" items modify {@media(min-width:48em) -> .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus:hover.color} which is currently set to #001A33 (medium dark blue)
++To change navbar scroll "hover" items modify {.navbar .navbar-nav .nav-link.active,.navbar .navbar-nav .nav-link.active:focus}
+
+BUTTONS
+btn btn-primary-outline (e.g. Login)
+
+
+btn btn-secondary-outline (e.g. Subscribe, Signup)
+
+
+btn btn-primary (e.g. Section)
+
+
++To change footer background modify {footer.background-color}
++To change footer topic headers modify {footer h4, footer h6} which are currently #FFF (white)
+
+
+LOGO NOTES
++The font used in logo is 'Microma'.
+
+Brand Colors
+#ee7600 - deep orange 
+#001a33 - deep dark blue
+#7e7373 - deep medium silver
+#cdcdcd - medium grey
+#838383 - deep dark grey
+#A9A9A9 - dark grey
+
+*/
+
+
+
+@viewport {
+	zoom: 1.0; /* same as initial-scale=1 */
+	width: device-width;
+}
+
+@-moz-viewport { width: device-width; scale: 1; }
+@-ms-viewport { width: device-width; scale: 1; }
+@-o-viewport { width: device-width; scale: 1; }
+@-webkit-viewport { width: device-width; scale: 1; }
+
+.debugBorder {
+	border: 0.3rem solid #F00; /* set border color to red */
+}
+
+.debugText {
+	color:#F00; /* set text color to red */
+}
+
+.debugBackground {
+	background-color:#F00; /* set background color to red */
+}
+
+
 html,
 body {
-	height: 100%;
-	background-image: url(../img/subtle_dots.png);
+	width: 100%;
+    height: 100%;
+	/* background-image: url(../img/subtle_dots.png); */
 }
 
-.navbar-brand {
-	font-family: 'Raleway';
+body {
+    font-family: 'Raleway','Quicksand', 'Inconsolata', Arial,sans-serif;
+    color: #001A33; /* real dark navy blue; RGB value is (0,26,51) */
+    webkit-tap-highlight-color: #222;
+    top:0;
+    background-color: #fff; /* white; RGB value is (255,255,255) */
+    background-image: url(../img/subtle_dots.png);
 }
 
-blockquote {
-	border-left: 5px solid rgba(0,0,0,.125);
-	padding-left: 1.25rem;
+/* workaround modal-open padding issue */
+body.modal-open {
+    padding-right:0 !important;
 }
 
 .wrapper {
@@ -21,13 +92,227 @@ blockquote {
 	margin: 0 auto -60px;
 }
 
+hr {
+    max-width: 120px;
+    border-width: 3px;
+    opacity: 0.08;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+hr.light {
+    border-color: #fff; /* white; RGB value is (255,255,255) */
+    opacity: 1;
+}
+
+hr.primary {
+    /* border-color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    border-color: #838383;  /* deep dark grey; RGB value is (131,131,131) */
+    opacity: 1;
+}
+
+a {
+    color: #007FFF; /* dark sky blue */  /* DEAL WITH THIS */
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+a:hover,
+a:focus {
+    color: #222; /* black; RGB value is (34,34,34) */
+    outline: 0;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    /* font-family:'Helvetica Neue',Arial,sans-serif; */
+    font-family: 'Raleway','Quicksand', 'Inconsolata', Arial,sans-serif;
+}
+
+.text-normal .text-normal-italic .text-normal-bold {
+	/* font-family:'Helvetica Neue',Arial,sans-serif; */
+	font-family: 'Raleway','Quicksand', 'Inconsolata', Arial,sans-serif;
+}
+
+.text-normal-italic {
+	font-style: italic;
+}
+
+.text-normal-bold {
+	font-weight: bold;
+}
+
+.wide-space {
+    letter-spacing: 1.6px;
+}
+
+.icon-lg {
+    font-size: 50px;
+    line-height: 18px;
+}
+
+.bg-primary {
+    background-color: #007FFF; /* dark sky blue; RGB value is (0,127,255) */  /* DEAL WITH THIS */
+}
+
+.bg-alt {
+    background-color: #fff; /* white or #fff; RGB value is (255,255,255) */
+    background-image: url(../img/subtle_surface.png);
+}
+
+.text-faded {
+    color: rgba(245,245,245,0.7);  /* white smoke; #f5f5f5 */
+}
+
+.text-dark {
+    color: #001A33 !important; /* real dark navy blue; RGB value is (0,26,51) */
+}
+
+.text-medium {
+	opacity: 0.7;
+}
+
+.text-light {
+    color: #fff; /* white; RGB value is (255,255,255) */
+}
+
+.text-light:hover,.text-light:focus {
+    color: #eee; /* light grey; RGB value is (238,238,238) */
+    text-decoration:none;
+}
+
+.text-primary {
+    /* color: #007FFF; dark sky blue; RGB value is (0,127,255) */
+    color: #838383 !important; /* deep dark grey; RGB value is (131,131,131) */
+}
+
+section {
+    padding: 70px 0;
+}
+
+aside {
+    padding: 45px 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.call-to-action h2 {
+    margin: 0 auto 20px;
+}
+
+.breadcrumb-dot .breadcrumb-item  + .breadcrumb-item::before{
+	content: "."
+}
+
 .push {
 	height: 60px;
 }
 
+blockquote {
+	border-left: 5px solid rgba(0,0,0,.125);
+	padding-left: 1.25rem;
+}
+
 footer {
-	height: 60px;
-	padding: 15px 0;
-	background-color: #e9ecef;
-	position: relative;
+    padding: 45px;
+    padding-top: 40px;
+    background-color: #e0e0e3; /* medium silver; RGB value is (224,224,227) */
+    background-image: url(../img/otis_redding.png);
+}
+
+footer h4, footer h6 {
+    color: #fff;  /* white; RGB value is (255,255,255) */
+}
+
+.list-group-item, .card-footer {
+    background-color: transparent;
+}
+
+.btn.btn-primary {
+    background-color: transparent;
+    border:1px solid #007FFF;  /* dark sky blue; RGB value is (0,127,255) */
+    /* border:1px solid #A9A9A9;  dark gray; RGB color is (169,169,169) */
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    color: #007FFF;  /* dark sky blue; RGB value is (0,127,255) */
+    /* color: #A9A9A9;  dark gray; RGB color is (169,169,169) */
+}
+
+.btn.btn-primary {
+	/* background-color: transparent; */
+	background-color: #ffffff; /* white; RGB(255,255,255) */
+	border: 2px solid #838383 !important; /* darker grey; RGB(131,131,131) */
+	-webkit-transition: all .35s;
+	-moz-transition: all .35s;
+	transition: all .35s;
+	color: #838383 !important; /* darker grey; RGB(131,131,131) */
+}
+
+.btn.btn-primary:hover {
+    /* opacity: 0.7; */
+    color: #ffffff !important; /* white; RGB(255,255,255) */
+    background-color: #838383;
+    border-color: #838383 !important;
+    transition: all 0.4s ease 0s;
+}
+
+.btn-primary-outline {
+    /* border-color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    border-color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+    /* color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+}
+
+.btn-primary-outline:hover {
+    /*background-color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    background-color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+    color: #001A33;  /* deep dark blue; RGB value is (0,26,51) */
+}
+
+.btn-secondary-outline {
+	/* border-color: #A0B7BC;  This is the standard bootstrap color */
+	border-color: #001A33; /* deep dark blue; RGB value is (0,26,51) */
+	/* color: #A0B7BC;	 This is the standard bootstrap color */
+	color: #001A33;	/* deep dark blue; RGB value is (0,26,51) */
+	opacity: 0.6;
+}
+
+.btn-secondary-outline:hover {
+	/* background-color:#A0B7BC;  This is the standard bootstrap color */
+	background-color: #F5F5F5; /* white smoke; RGB value is (245,245,245) */
+	opacity: 1.0;
+}
+
+.btn-xl {
+    padding: 15px 30px;
+    font-size: 20px;
+}
+
+
+::-moz-selection {
+    text-shadow: none;
+    color: #fff; /* white; RGB value is (255,255,255) */
+    background: #222; /* black; RGB value is (34,34,34) */
+}
+
+::selection {
+    text-shadow: none;
+    color: #fff; /* white; RGB value is (255,255,255) */
+    background: #222; /* black; RGB value is (34,34,34) */
+}
+
+img::selection {
+    color: #fff; /* white; RGB value is (255,255,255) */
+    background: 0 0;
+}
+
+img::-moz-selection {
+    color: #fff; /* white; RGB value is (255,255,255) */
+    background: 0 0;
 }

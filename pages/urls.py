@@ -30,7 +30,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('settings/profile/', accounts_views.UserUpdateView.as_view(), name='my_profile'),
+    path('settings/profile/', accounts_views.update_profile, name='my_profile'),
     path('settings/password/', auth_views.PasswordChangeView.as_view(template_name='password_change.html'),
          name='password_change'),
     path('settings/password/done/', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'),

@@ -1,33 +1,179 @@
-html,
-body {
-	height: 100%;
+.navbar {
+    border-color: rgba(35,35,35,.05);  /* light black; RGB value is (35,35,35) */
+    background-color: #fff; /* white; RGB value is (255,255,255) */
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
 }
 
 .navbar-brand {
-	font-family: 'Raleway';
+    color: #007FFF; /* dark sky blue; RGB value is (0,127,255) */
+    padding: 1px;
+    line-height: 1.90em;
+    -webkit-transition: padding .2s ease-in;
+    -moz-transition: padding .2s ease-in;
+    transition: padding .2s ease-in;
+    float:none;
 }
 
-blockquote {
-	border-left: 5px solid rgba(0,0,0,.125);
-	padding-left: 1.25rem;
+.navbar-brand:hover,
+.navbar-brand:focus {
+    /* color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    color: #f00;
 }
 
-.wrapper {
-	position: relative;
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -60px;
+.navbar .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #001A33;  /* medium dark blue; RGB value is (0,26,51) */
 }
 
-.push {
-	height: 60px;
+.navbar .navbar-toggle, .navbar-default .navbar-collapse {
+    border-color: transparent;
 }
 
-footer {
-	height: 60px;
-	padding: 15px 0;
-	background-color: #e9ecef;
-	position: relative;
+.navbar .navbar-nav > li>a,
+.navbar .navbar-nav > li > a:focus {
+    font-size: 12px;
+    color: #001A33;  /* medium dark blue; RGB value is (0,26,51) */
+    text-transform: uppercase;
 }
 
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus:hover {
+    /* color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    color: #f00;
+}
+
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link.active:focus {
+    color: #ee7600 !important; /* deep orange; RGB value is (255,128,0) */
+    background-color: transparent;
+}
+
+.btn.btn-primary {
+    background-color: transparent;
+    /* border:1px solid #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    border:1px solid #A9A9A9; /* dark gray; RGB color is (169,169,169) */
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    /*color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    color: #A9A9A9; /* dark gray; RGB color is (169,169,169) */
+}
+
+/* responsive nav */
+@media(max-width:48em) {
+    .navbar .navbar-nav>.nav-item {
+        float: none;
+        margin-left: .1rem;
+    }
+    .navbar .navbar-nav {
+        float:none !important;
+    }
+}
+
+@media(min-width:48em) {
+    .navbar {
+        border-color: transparent;
+        background-color: #fff; /* white; RGB value is (255,255,255) */
+        min-height: 60px;
+    }
+
+    .navbar-brand {
+        color: #007FFF;  /* dark sky blue; RGB value is (0,127,255) */
+        float: left;
+        padding-left: 1px;
+    }
+
+    .navbar .navbar-brand:hover,
+    .navbar .navbar-brand:focus {
+        color: #001A33;  /* medium dark blue; RGB value is (0,26,51) */
+    }
+    
+    .navbar .navbar-nav > li > a,
+    .navbar .navbar-nav > li > a:focus {
+        color: #001A33;  /* medium dark blue; RGB value is (0,26,51) */
+        letter-spacing: 1.1px;
+    }
+
+    .navbar .navbar-nav > li > a:hover,
+    .navbar .navbar-nav > li > a:focus:hover {
+    	/* color: #001A33;   medium dark blue; RGB value is (0,26,51) */
+    	color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+    }
+
+    #topNav {
+    	/* background-color: #fff;   white; RGB value is (255,255,255) */
+    	background-color: #E8E8E8;  /* white smoke + 2; RGB color is 232,232,232 */
+    }   
+}
+
+header {
+    position: relative;
+    min-height: auto;
+    text-align: center;
+    /* color: #001A33;  medium dark blue or #001A33; RGB value is (0,26,51) */
+    width: 100%;
+    background-color:#fFF;  /* white; RGB value is (255,255,255) */
+    background-image: url(../img/p2.png);
+}
+
+header .header-content {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px;
+    text-align: center;
+    z-index: 2;
+}
+
+header .header-content .inner h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+header .header-content .inner p {
+    margin-bottom: 50px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #222; /* dark black or #222; RGB value is (34,34,34) */
+}
+
+@media(min-width:34em) {
+    .icon-lg {
+        font-size: 80px;
+    }
+    
+    header {
+        min-height: 100%;
+    }
+
+    header .header-content {
+        position: absolute;
+        top: 50%;
+        padding: 0 50px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    header .header-content .inner {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1000px;
+    }
+
+    header .header-content .inner h1 {
+        font-size: 53px;
+    }
+
+    header .header-content .inner p {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 80%;
+        font-size: 18px;
+    }
+    
+    section {
+        min-height: 600px;
+        padding: 100px 0;
+    }
+}
