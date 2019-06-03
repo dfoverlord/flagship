@@ -2,81 +2,97 @@
 
 {% load form_tags widget_tweaks %}
 
+{% load static %}
+
 {% block title %}My Profile{% endblock %}
 
 {% block page_content %}
 	<div class="row justify-content-center">
 		<div class="col-lg-6 col-md-8 col-sm-10">
-			<div class="media">
-				<img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-				<div class="media-body">
-					<h2 class="account-heading">{{ user.username }}</h2>
-					<p class="text-secondary">{{ user.email }}</p>
+			<div class="container d-flex profile-sidebar justify-content-center mx-auto shadow p-3 mb-5 bg-white rounded">
+				<div class="media align-items-center">
+					<img class="rounded-circle mr-3 profile-sidebar-img img-fluid" src="{{ user.profile.image.url }}">
+					<div class="media-body">
+						<h3 class="account-heading">{{ user.username }}</h3>
+						<p class="text-secondary">{{ user.email }}</p>
+					</div>
 				</div>
 			</div>
-		
-			<form method="post" enctype="multipart/form-data">
-				{% csrf_token %}
-				<div class="form-group">
-					<legend class="border-bottom mb-4">Profile Info</legend>
-					
-					<!-- Deal with User form -->
-					{% if user_form.non_field_errors %}
-						<div class="alert alert-danger" role="alert">
-							{% for error in user_form.non_field_errors %}
-								<p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
-							{% endfor %}
-						</div>
-					{% endif %}
-					
-					{% for field in user_form %}
-						<div class="form-group">
-							{{ field.label_tag }}
-							{% render_field field class=field|input_class %}
-							{% for error in field.errors %}
-								<div class="invalid-feedback">
-									{{ error }}
+		</div>	
+		<div class="col-lg-6 col-md-8 col-sm-10">
+			<div class="container">
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group">
+						<div class="container shadow p-3 mb-5 bg-white rounded">
+							<legend class="border-bottom mb-4">Profile Information</legend>
+						
+							<!-- Deal with User form -->
+							{% if user_form.non_field_errors %}
+								<div class="alert alert-danger" role="alert">
+									{% for error in user_form.non_field_errors %}
+										<p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+									{% endfor %}
+								</div>
+							{% endif %}
+							
+							{% for field in user_form %}
+								<div class="form-group">
+									{{ field.label_tag }}
+									{% render_field field class=field|input_class %}
+									{% for error in field.errors %}
+										<div class="invalid-feedback">
+											{{ error }}
+										</div>
+									{% endfor %}
+									{% if field.help_text %}
+										<small class="form-text text-muted">
+											{{ field.help_text|safe }}
+										</small>
+									{% endif %}
 								</div>
 							{% endfor %}
-							{% if field.help_text %}
-								<small class="form-text text-muted">
-									{{ field.help_text|safe }}
-								</small>
+							
+							<!-- Deal with Profile form -->
+							{% if profile_form.non_field_errors %}
+								<div class="alert alert-danger" role="alert">
+									{% for error in profile_form.non_field_errors %}
+										<p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+									{% endfor %}
+								</div>
 							{% endif %}
-						</div>
-					{% endfor %}
-					
-					<!-- Deal with Profile form -->
-					{% if profile_form.non_field_errors %}
-						<div class="alert alert-danger" role="alert">
-							{% for error in profile_form.non_field_errors %}
-								<p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
-							{% endfor %}
-						</div>
-					{% endif %}
-					
-					{% for field in profile_form %}
-						<div class="form-group">
-							{{ field.label_tag }}
-							{% render_field field class=field|input_class %}
-							{% for error in field.errors %}
-								<div class="invalid-feedback">
-									{{ error }}
+							
+							{% for field in profile_form %}
+								<div class="form-group">
+									{{ field.label_tag }}
+									{% render_field field class=field|input_class %}
+									{% for error in field.errors %}
+										<div class="invalid-feedback">
+											{{ error }}
+										</div>
+									{% endfor %}
+									{% if field.help_text %}
+										<small class="form-text text-muted">
+											{{ field.help_text|safe }}
+										</small>
+									{% endif %}
 								</div>
 							{% endfor %}
-							{% if field.help_text %}
-								<small class="form-text text-muted">
-									{{ field.help_text|safe }}
-								</small>
-							{% endif %}
 						</div>
-					{% endfor %}
-				
-				</div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-success">Save Changes</button>
-				</div>
-			</form>
+					</div>
+					<div class=" container text-center">
+						<button type="submit" class="btn btn-success btn-block">Save Changes</button><a href="{% url 'home' %}" class="btn btn-light-outline btn-block m-t-3">Cancel</a> 
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
+	<div class="container bottom-padding">
+	</div>
 {% endblock %}
+
+{% block page_footer %}
+	<!-- Footer section of page -->
+	{% include 'includes/footer.html' %}
+{% endblock page_footer %}
+		

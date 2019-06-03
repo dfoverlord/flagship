@@ -35,6 +35,8 @@ Brand Colors
 #cdcdcd - medium grey
 #838383 - deep dark grey
 #A9A9A9 - dark grey
+#353A3F - dark blue RGB(53,58,63
+#6f6f70 - deep grey RBG(111,111,112)
 
 */
 
@@ -71,8 +73,9 @@ body {
 }
 
 body {
-    font-family: 'Raleway','Quicksand', 'Inconsolata', Arial,sans-serif;
-    color: #001A33; /* real dark navy blue; RGB value is (0,26,51) */
+    font-family: 'Open Sans', 'Lato', Arial,sans-serif;
+    /* color: #001a33; real dark navy blue; RGB value is (0,26,51) */
+    color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
     webkit-tap-highlight-color: #222;
     top:0;
     background-color: #fff; /* white; RGB value is (255,255,255) */
@@ -120,7 +123,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #222; /* black; RGB value is (34,34,34) */
+    color: #F00; /* black; RGB value is (34,34,34) */
     outline: 0;
 }
 
@@ -129,12 +132,12 @@ p {
     line-height: 1.7;
     margin-bottom: 20px;
     /* font-family:'Helvetica Neue',Arial,sans-serif; */
-    font-family: 'Raleway','Quicksand', 'Inconsolata', Arial,sans-serif;
+    font-family: 'Open Sans', 'Loto', Arial,sans-serif;
 }
 
 .text-normal .text-normal-italic .text-normal-bold {
 	/* font-family:'Helvetica Neue',Arial,sans-serif; */
-	font-family: 'Raleway','Quicksand', 'Inconsolata', Arial,sans-serif;
+	font-family: 'Open Sans', 'Lato', Arial,sans-serif;
 }
 
 .text-normal-italic {
@@ -143,6 +146,10 @@ p {
 
 .text-normal-bold {
 	font-weight: bold;
+}
+
+.text-emphasize {
+	text-decoration: underline;
 }
 
 .wide-space {
@@ -155,7 +162,8 @@ p {
 }
 
 .bg-primary {
-    background-color: #007FFF; /* dark sky blue; RGB value is (0,127,255) */  /* DEAL WITH THIS */
+    /* background-color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    background-image: url(../img/subtle_dots.png);
 }
 
 .bg-alt {
@@ -163,12 +171,23 @@ p {
     background-image: url(../img/subtle_surface.png);
 }
 
+.bg-light {
+	background-color: #f4f5f5 !important; /* very light deep dark blue; RGB value is (244,245,245) */
+	border: 0.1rem solid #dbdcdc !important; /* very light deep dark blue; RGB value is (219,220,220) */
+}
+
+.bg-dark {
+	background-color: #E0E1E2 !important; /* light silver; RGB value is (224,225,226) */
+	border: 0.1rem solid #E0E1E2 !important; /* light silver; RGB value is (224,225,226) */
+}
+
 .text-faded {
     color: rgba(245,245,245,0.7);  /* white smoke; #f5f5f5 */
 }
 
 .text-dark {
-    color: #001A33 !important; /* real dark navy blue; RGB value is (0,26,51) */
+    /* color: #001A33 !important;  real dark navy blue; RGB value is (0,26,51) */
+    color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
 }
 
 .text-medium {
@@ -179,7 +198,8 @@ p {
     color: #fff; /* white; RGB value is (255,255,255) */
 }
 
-.text-light:hover,.text-light:focus {
+.text-light:hover,
+.text-light:focus {
     color: #eee; /* light grey; RGB value is (238,238,238) */
     text-decoration:none;
 }
@@ -221,35 +241,68 @@ blockquote {
 footer {
     padding: 45px;
     padding-top: 40px;
-    background-color: #e0e0e3; /* medium silver; RGB value is (224,224,227) */
-    background-image: url(../img/otis_redding.png);
+    background-color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+    /*background-image: url(../img/otis_redding.png);*/
 }
 
-footer h4, footer h6 {
+footer h4, 
+footer h6 {
     color: #fff;  /* white; RGB value is (255,255,255) */
+}
+
+footer p,
+footer a {
+	color: #6f6f70;  /* deep grey; RGB value is (111,111,112) */
+}
+
+footer a:hover, a:focus {
+	color: #8B8B8C;  /* white; RGB value is (139,139,140) */
+	text-decoration: none;
+	outline: 0;
+}
+
+.footer-text-emphasize {
+	color: #fff;  /* white; RGB value is (255,255,255) */
+	text-decoration: underline;
+}
+
+.footer-icon {
+	font-size: 50px;
+	color: #fff; /* white; RGB value is (255,255,255) */
+}
+
+#footer-header {
+	background-color: #fff;
+	padding: 30px;
+	padding-top: 25px;
+	width: 100%;
+}
+
+#footer-header h4, #footer-header h5, #footer-header h6 {
+	color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
 }
 
 .list-group-item, .card-footer {
     background-color: transparent;
 }
 
-.btn.btn-primary {
-    background-color: transparent;
-    border:1px solid #007FFF;  /* dark sky blue; RGB value is (0,127,255) */
-    /* border:1px solid #A9A9A9;  dark gray; RGB color is (169,169,169) */
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
-    color: #007FFF;  /* dark sky blue; RGB value is (0,127,255) */
-    /* color: #A9A9A9;  dark gray; RGB color is (169,169,169) */
+/*
+@supports (transition: initial) {
+	.btn.btn-primary {
+		/* background-color: transparent; */
+		background-color: #ffffff; /* white; RGB(255,255,255) */
+		border: 2px solid #838383 !important; /* darker grey; RGB(131,131,131) */
+		-webkit-transition: all .35s;
+		-moz-transition: all .35s;
+		transition: all .35s;
+		color: #838383 !important; /* darker grey; RGB(131,131,131) */
+	}
 }
 
 .btn.btn-primary {
 	/* background-color: transparent; */
 	background-color: #ffffff; /* white; RGB(255,255,255) */
 	border: 2px solid #838383 !important; /* darker grey; RGB(131,131,131) */
-	-webkit-transition: all .35s;
-	-moz-transition: all .35s;
 	transition: all .35s;
 	color: #838383 !important; /* darker grey; RGB(131,131,131) */
 }
@@ -261,31 +314,126 @@ footer h4, footer h6 {
     border-color: #838383 !important;
     transition: all 0.4s ease 0s;
 }
+*/
 
-.btn-primary-outline {
-    /* border-color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
-    border-color: #ee7600; /* deep orange; RGB value is (255,128,0) */
-    /* color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
-    color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+.btn-light {
+	border: 2px solid #F5F5F5; /* white smoke; RGB value is (245,245,245) */
+	background-color: #F5F5F5; /* white smoke; RGB value is (245,245,245) */
+	transition: all .35s;
+	color: #cecece !important; /* darker light gray: RGB value is (206,206,206) */
 }
 
-.btn-primary-outline:hover {
-    /*background-color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
-    background-color: #ee7600; /* deep orange; RGB value is (255,128,0) */
-    color: #001A33;  /* deep dark blue; RGB value is (0,26,51) */
+.btn-light:hover {
+	border-color: #cecece; /* darker light gray: RGB value is (206,206,206) */
+	background-color: #cecece; /* darker light gray: RGB value is (206,206,206) */
+	transition: all .35s;
+	color: #F5F5F5 !important; /* white smoke; RGB value is (245,245,245) */
+}
+
+.btn-light-outline {
+	border-color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+	color: #353A3F !important; /* deep dark blue; RGB value is (53,58,63) */
+	opacity: 0.6;
+	transition: all .35s;
+}
+
+.btn-light-outline:hover {
+	background-color: #F5F5F5; /* white smoke; RGB value is (245,245,245) */
+	opacity: 1.0;
+	transition: all 0.4s ease 0s;
+}
+
+.btn-light-outline:focus {
+	color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+	opacity: 0.6;
+	transition: all .35s;
 }
 
 .btn-secondary-outline {
 	/* border-color: #A0B7BC;  This is the standard bootstrap color */
-	border-color: #001A33; /* deep dark blue; RGB value is (0,26,51) */
+	border-color: #ee7600; /* deep orange; RGB value is (255,128,0) */
 	/* color: #A0B7BC;	 This is the standard bootstrap color */
-	color: #001A33;	/* deep dark blue; RGB value is (0,26,51) */
-	opacity: 0.6;
+	color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+	transition: all .35s;
 }
 
 .btn-secondary-outline:hover {
-	/* background-color:#A0B7BC;  This is the standard bootstrap color */
-	background-color: #F5F5F5; /* white smoke; RGB value is (245,245,245) */
+	background-color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+    color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+	transition: all 0.4s ease 0s;
+}
+
+.btn-secondary-outline:focus {
+	color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+	transition: all .35s;
+}
+
+.btn-info {
+	background-color: #5084e6; /* deep light blue; RGB(80,132,230) */
+	border: 2px solid #5d8eea !important; /* lighter deep light blue; RGB(93,142,234) */
+	transition: all .35s;
+	color: #ffffff; /* white; RGB(255,255,255) */
+}
+
+.btn-info:hover {
+	background-color: #3863b5; /* darker deep light blue; RGB(56,99,181) */
+	border: 2px solid #3863b5 !important; /* darker deep light blue; RGB(131,169,239) */
+	transition: all .35s;
+	color: #ffffff; /* white; RGB(255,255,255) */
+}
+
+.btn-info-outline {
+	background-color: #ffffff; /* white; RGB(255,255,255) */
+	border: 2px solid #5084e6; /* deep light blue; RGB(80,132,230) */
+	transition: all .35s;
+	color: #5084e6; /* deep light blue; RGB(80,132,230) */
+}
+
+.btn-info-outline:hover {
+	background-color: #5084e6; /* deep light blue; RGB(80,132,230) */
+	border: 2px solid #5d8eea !important; /* lighter deep light blue; RGB(93,142,234) */
+	transition: all .35s;
+	color: #ffffff; /* white; RGB(255,255,255) */
+}
+
+.btn-info-outline:focus {
+	color: #5084e6; /* deep light blue; RGB(80,132,230) */
+	transition: all .35s;
+}
+
+.btn-dark {
+	background-color: #5c6c7c; /* lighter deep dark blue; RGB value is (53,58,63) */
+	border: 2px solid #5c6c7c !important; /* lighter deep dark blue; RGB value is (53,58,63) */
+	transition: all .35s;
+	color: #ffffff; /* white; RGB(255,255,255) */
+}
+
+.btn-dark:hover {
+	background-color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+	border: 2px solid #7d8996 !important; /* deep dark blue; RGB(53,58,63) */
+	transition: all .35s;
+	color: #ffffff; /* white; RGB(255,255,255) */
+}
+
+.btn-dark-outline {
+	background-color: #ffffff; /* white; RGB(255,255,255) */
+	border: 2px solid #353A3F !important; /* deep dark blue; RGB(53,58,63) */
+	transition: all .35s;
+	color: #353A3F; /* deep dark blue; RGB(53,58,63) */
+	opacity: 0.5;
+}
+
+.btn-dark-outline:hover {
+	background-color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+	border: 2px solid #7d8996 !important; /* deep dark blue; RGB(53,58,63) */
+	transition: all .35s;
+	color: #ffffff; /* white; RGB(255,255,255) */
+	opacity: 1.0;
+}
+
+.btn-dark-outline:focus {
+	color: #353A3F; /* deep dark blue; RGB(53,58,63) */
+	transition: all .35s;
 	opacity: 1.0;
 }
 
@@ -294,6 +442,51 @@ footer h4, footer h6 {
     font-size: 20px;
 }
 
+.profile-sidebar-img {
+	max-width: 150px;
+	height: auto;
+}
+
+.profile-sidebar {
+	max-width: 500px;
+	height: 250px;
+	margin-top: 30px;
+}
+
+.profile-feature {
+	margin-top: 10px;
+	background-color: #fff;
+	padding: 15px 15px 15px 15px;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #A9A9A9; /* dark grey */
+	border-radius: 5px;
+}
+
+.logo {
+	font-family: 'Open Sans', 'Lato', Arial,sans-serif;
+}
+
+.logo a {
+	color: rgba(0,0,0,.9);
+}
+
+.logo a:hover,
+.logo a:active {
+	text-decoration: none;
+}
+
+.logo-tagline {
+	color: #f00;
+	opacity: 0.6;
+	color: #800000;  /* deep red or RGB(128,0,0) */
+}
+
+.bottom-padding {
+	padding: 75px;
+	padding-top: 70px;
+	width: 100%;
+}
 
 ::-moz-selection {
     text-shadow: none;

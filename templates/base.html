@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{% block title %}Digital Facets{% endblock %}</title>
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Inconsolata|Quicksand|Raleway:400,400i&display=swap&text=Digital%20Facets" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Lato&display=swap&text=Digital%20Facets" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" rel="stylesheet">
 		<link rel="stylesheet" href="{% static 'css/app.css' %}">
@@ -28,14 +28,11 @@
 					{% endblock %}
 				</div>
 				<div class="push"></div>
-			</div>
-			<footer>
-				<div class="container-fluid py5">
-					<!-- This is a custom footer -->
+				{% block page_footer %}
+					<!-- Footer section of page -->
 					{% include 'includes/footer.html' %}
-					<!-- Add a powered by footer which includes a link and graphic -->					
-				</div>
-			</footer>
+				{% endblock page_footer %}
+			</div>
 		{% endblock body %}
 		
 		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>

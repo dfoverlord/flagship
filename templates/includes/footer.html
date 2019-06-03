@@ -1,74 +1,55 @@
-<footer>
-	<div class="container py5">
-		<div class="row">
-			<!-- Grid column -->
-			<div class="col-md-6 mt-md-0 mt-3">
-				<!-- Content -->
-				<h4 class="text-uppercase">Digital Facets</h4>
-				<p>For more information visit DigitalFacets.com or DigitalFacets.com</p>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 py-5">
-							<div class="mb-5 flex-center">
-								<a href="#!">Social Image 1</a>
-								<a href="#!">Social Image 2</a>
-								<a href="#!">Social Image 3</a>
-							</div>
-						<div>
-					</row>
+{% load static %}
+
+<footer id="footer">
+	<div class="container-fluid py5">
+		<div class="container">
+			<div class="row">
+					<!-- Grid column -->
+				<div class="col-md-6 text-center">
+					<h6 class="text-uppercase">Digital Fusion Software Group</h6>
+					<div class="container ">
+						<img class="img-fluid" alt='' width=75 height=75 src="{% static 'img/digitalfacets_logo_v2_500x500.png' %}">
+					</div>
+					<p><small>Innovation | Creativity | Multi<span class="wide-space footer-text-emphasize">facet</span>ed</small></p>
 				</div>
-			</div>
-			<!-- Grid column -->
-			
-			<hr class="clearfix w-100 d-md-none pb-3">
-			
-			<!-- Grid column -->
-			<div class="col-md-3 mb-md-0 mb-3">
-				<!-- Content -->
-				<h5 class="text-uppercase">Site</h5>
-				<ul class="list-unstyled">
-					<li>
-						<a href="#!">Link 1</a>
-					</li>
-					<li>
-						<a href="#!">Link 2</a>
-					</li>
-					<li>
-						<a href="#!">Link 3</a>
-					</li>
-				</ul>
-			</div>
-			<!-- Grid column -->
-			
-			<!-- Grid column -->
-			<div class="col-12 col-md-12 col-lg-6 mb-2 text-right">
-				<!-- Content -->
-				<h5 class="text-uppercase">Other</h5>
-				<ul class="list-unstyled">
-					<li>
-						<a href="#!">Link 4</a>
-					</li>
-					<li>
-						<a href="#!">Link 5</a>
-					</li>
-					<li>
-						<a href="#!">Link 6</a>
-					</li>
-				</ul>
-			</div>
-			<!-- Grid column -->
-		</div>
-		
-		<!-- Copyright -->
-		<div class="row">
-			<!-- Grid column -->
-			<div class="col text-center">
-				<div class="footer-copyright text-center py-3">
-					<small>Copyright &copy; {% now "Y" %} <strong>DigitalFacets</strong>. All Rights Reserved.</small>
+				<!-- Grid column -->
+				
+				
+				<!-- Grid column -->
+				<div class="col">
+					<h6 class="text-uppercase">Site</h6>
+					<ul class="list-unstyled">
+						<li>
+							<a href="#!">Portfolio</a>
+						</li>
+						<li>
+							<a href="#!">Blog</a>
+						</li>
+						<li>
+							<a href="#!">Discourse</a>
+						</li>
+						<li>
+							<a href="#!">Photography</a>
+						</li>
+					</ul>
 				</div>
+				<!-- Grid column -->
+				
+				
+				<!-- Grid column -->
+				<div class="col">
+					<h6 class="text-uppercase">Follow</h6>
+					<ion-icon ios="logo-twitter" md="logo-twitter" class="footer-icon"></ion-icon>&nbsp;<ion-icon ios="logo-snapchat" md="logo-snapchat" class="footer-icon"></ion-icon>&nbsp;<ion-icon ios="logo-github" md="logo-github" class="footer-icon"></ion-icon>&nbsp;<ion-icon ios="logo-instagram" md="logo-instagram" class="footer-icon"></ion-icon>
+				</div>
+				<!-- Grid column -->
+				
 			</div>
-			<!-- Grid column -->
+			
+			<!-- Copyright -->
+			<span class="float-right text-muted small">
+				Copyright &copy; {% now "Y" %} <strong>DigitalFacets</strong>. All Rights Reserved.
+			</span>
+			<!-- Copyright -->
 		</div>
-		<!-- Copyright -->
 	</div>
 </footer>

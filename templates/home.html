@@ -4,21 +4,23 @@
 
 {% block stylesheet %}
 	<link rel="stylesheet" href="{% static 'css/home.css' %}">
-{% endblock %}
+{% endblock stylesheet %}
 
 {% block body %}
-	<!- Header section of page -->
+	<!-- Header section of page -->
 	<header class="first">
 		<div class="header-content">
 			<div class="inner">
 				<img class="img-fluid" alt='' width=177 height=250 src="{% static 'img/digitalfacets_logo_v1_500x505.png' %}">
-				<h1>Digital Facets</h1>
-				<h5 class="wow fadeIn text-normal wow fadeIn">inspiring innovation | creativity | becoming multi(<span class="text-normal-bold text-normal-italic wide-space text-muted">facet</span>)ed<br/><small>shaping <span class="text-normal-italic">your</span> digital future in a sustainable way</small></h5>
+				<h2>Digital Facets</h2>
+				<h5 class="wow fadeIn text-normal wow fadeIn">inspiring innovation | creativity | <span class="text-normal-italic"><small>becoming</small></span>&nbsp;multi<span class="wide-space text-emphasize">facet</span>ed<br/><span class="logo-tagline"><small>shaping <span class="text-normal-italic">your</span> digital future in a sustainable way</small></span></h5>
 				{% if user.is_authenticated %}
+					<!-- PUT SOME REAL STUFF IN HERE -->
 					Welcome {{ user.get_username }}
-				{% else %}	
-					<a href="{% url 'signup' %}" class="btn btn-primary-outline btn-lg wow fadeInUp m-t-3">Get Started</a>
-					<a href="{% url 'login' %}" class="btn btn-secondary-outline btn-lg wow fadeInDown m-t-3">Log in</a>
+				{% else %}
+					<br/>
+					<a href="{% url 'signup' %}" class="btn btn-secondary-outline btn-lg wow fadeInUp m-t-3">Get Started</a>
+					<a href="{% url 'login' %}" class="btn btn-light-outline btn-lg wow fadeInDown m-t-3">Log in</a>
 				{% endif %}
 			</div>
 		</div>
@@ -43,7 +45,7 @@
 						<a class="nav-link" href="#three">Blog</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#four">Forums</a>
+						<a class="nav-link" href="#four">Discourse</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#five">Photography</a>
@@ -60,7 +62,6 @@
 		</div>
 	</nav>
 	
-	
 	<!-- Main section of page -->
 	<main id="main">
 		<section id="one">
@@ -69,38 +70,38 @@
 					<div class="col-12 my-auto">
 						<div class="row text-center">
 							<div class="col-lg-4 mb-4">
-								<div class="card h-100">
+								<div class="card h-100 bg-light">
 									<!-- Placeholder for image 1 -->
 									<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
 									<div class="card-body d-flex flex-column justify-content-center align-items-center">
 										<h1 class="display-2"><span class="ion ion-ios-snow-outline"></span></h1>
 										<h5 class="card-title"><strong>Section 1</strong></h5>
 										<p class="card-text">Some section 1 text here</p>
-										<a href="#" class="btn btn-primary mt-auto">Section 1 Button</a>
+										<a href="#" class="btn btn-info mt-auto">Section 1 Button</a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-4 mb-4">
-								<div class="card h-100">
+								<div class="card h-100 bg-light">
 									<!-- Placeholder for image 2 -->
 									<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
 									<div class="card-body d-flex flex-column justify-content-center align-items-center">
 										<h1 class="display-2"></h1>
 										<h5 class="card-title"><strong>Section 1</strong></h5>
 										<p class="card-text">Some section 2 text here</p>
-										<a href="#" class="btn btn-primary mt-auto">Section 2 Button</a>
+										<a href="#" class="btn btn-info mt-auto">Section 2 Button</a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-4 mb-4">
-								<div class="card h-100">
+								<div class="card h-100 bg-light">
 									<!-- Placeholder for image 3 -->
 									<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
 									<div class="card-body d-flex flex-column justify-content-center align-items-center">
 										<h1 class="display-2"></h1>
 										<h5 class="card-title"><strong>Section 1</strong></h5>
 										<p class="card-text">Some section 3 text here</p>
-										<a href="#" class="btn btn-primary mt-auto">Section 3 Button</a>
+										<a href="#" class="btn btn-info mt-auto">Section 3 Button</a>
 									</div>
 								</div>
 							</div>
@@ -120,27 +121,37 @@
 					</div>
 				</div>
 			</div>
-			<div class="container wow fadeInUp debugBorder">
+			<div class="container wow fadeInUp">
 				<div class="row">
-					<div class="col-lg-4 col-md-4 text-container">
+					<div class="col-lg-3 col-md-4 text-container bg-light">
 						<div class="feature">
 							<h6 class="text-uppercase">Project 1</h6>
 							<p class="text-muted m-b-0">A brief introductory to project 1 should be included here.</p>
-							<a href="#" class="btn btn-primary mt-auto">Read More</a>
+							<a href="#" class="btn btn-dark mt-auto">Read More</a>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4 text-container">
+					
+					<div class="col-lg-3 col-md-4 text-container bg-light">
 						<div class="feature">
 							<h6 class="text-uppercase">Project 2</h6>
 							<p class="text-muted m-b-0">A brief introductory to project 2 should be included here.</p>
-							<a href="#" class="btn btn-primary mt-auto">Read More</a>
+							<a href="#" class="btn btn-dark mt-auto">Read More</a>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4 text-container">
+					
+					<div class="col-lg-3 col-md-4 text-container bg-light">
 						<div class="feature">
 							<h6 class="text-uppercase">Project 3</h6>
 							<p class="text-muted m-b-0">A brief introductory to project 3 should be included here.</p>
-							<a href="#" class="btn btn-primary mt-auto">Read More</a>
+							<a href="#" class="btn btn-dark mt-auto">Read More</a>
+						</div>
+					</div>
+					
+					<div class="col-lg-3 col-md-4 text-container bg-light">
+						<div class="feature">
+							<h6 class="text-uppercase">Project 4</h6>
+							<p class="text-muted m-b-0">A brief introductory to project 4 should be included here.</p>
+							<a href="#" class="btn btn-dark mt-auto">Read More</a>
 						</div>
 					</div>
 				</div>
@@ -157,17 +168,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="container wow fadeInUp debugBorder">
+			<div class="container wow fadeInUp">
 				<div class="row">
 					<div class="col-lg-12 text-container">
-						<div class="card h-100">
+						<div class="card h-100 bg-light">
 							<!-- Placeholder for blog image -->
 							<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
 							<div class="card-body d-flex flex-column justify-content-center align-items-center">
 								<h1 class="display-2"></h1>
 								<h5 class="card-title"><strong>DF Blog</strong></h5>
 								<p class="card-text">Some blog section 1 text here</p>
-								<a href="#" class="btn btn-primary mt-auto">Read More</a>
+								<a href="#" class="btn btn-dark mt-auto">Read More</a>
 							</div>
 						</div>
 					</div>
@@ -180,22 +191,22 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<hr class="primary" />
-						<h2 class="mt-0 text-primary text-medium">The Forums</h2>
+						<h2 class="mt-0 text-primary text-medium">Discourse</h2>
 						<hr class="primary" />
 					</div>
 				</div>
 			</div>
-			<div class="container wow fadeInUp debugBorder">
+			<div class="container wow fadeInUp">
 				<div class="row">
 					<div class="col-lg-12 text-container">
-						<div class="card h-100">
+						<div class="card h-100 bg-light">
 							<!-- Placeholder for blog image -->
 							<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
 							<div class="card-body d-flex flex-column justify-content-center align-items-center">
 								<h1 class="display-2"></h1>
 								<h5 class="card-title"><strong>DF Forums</strong></h5>
 								<p class="card-text">Some forum section 1 text here</p>
-								<a href="{% url 'forum_home' %}" class="btn btn-primary mt-auto">Read More</a>
+								<a href="{% url 'forum_home' %}" class="btn btn-dark mt-auto">Read More</a>
 							</div>
 						</div>
 					</div>
@@ -214,29 +225,29 @@
 					</div>
 				</div>
 			</div>
-			<div class="container wow fadeInUp debugBorder">
+			<div class="container wow fadeInUp">
 				<div class="row">
 					<div class="col-lg-6 text-container">
-						<div class="card h-100">
+						<div class="card h-100 bg-dark">
 							<!-- Placeholder for photo section 1 image -->
 							<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
 							<div class="card-body d-flex flex-column justify-content-center align-items-center">
 								<h1 class="display-2"></h1>
 								<h5 class="card-title"><strong>Photo Section 1</strong></h5>
 								<p class="card-text">Some photo section 1 text here</p>
-								<a href="#" class="btn btn-primary mt-auto">Photo Section 1 Button</a>
+								<a href="#" class="btn btn-dark-outline mt-auto">Photo Section 1 Button</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-6 text-container">
-						<div class="card h-100">
+						<div class="card h-100 bg-dark">
 							<!-- Placeholder for photo section 2 image -->
 							<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
 							<div class="card-body d-flex flex-column justify-content-center align-items-center">
 								<h1 class="display-2"></h1>
 								<h5 class="card-title"><strong>Photo Section 2</strong></h5>
 								<p class="card-text">Some photo section 2 text here</p>
-								<a href="#" class="btn btn-primary mt-auto">Photo Section 2 Button</a>
+								<a href="#" class="btn btn-dark-outline mt-auto">Photo Section 2 Button</a>
 							</div>
 						</div>
 					</div>
@@ -255,10 +266,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="container wow fadeInUp debugBorder	">
+			<div class="container wow fadeInUp">
 				<div class="row">
 					<div class="col-lg-12 text-container">
-						<div class="card h-100">
+						<div class="card h-100 bg-light">
 							<div class="card-body d-flex flex-column justify-content-center align-items-center">
 								<h1 class="display-2"></h1>
 								<h5 class="card-title"><strong>Company Stock Info Here</strong></h5>
@@ -272,51 +283,26 @@
 		
 	</main>
 	
-	<!-- Footer section of page -->
-	<footer id="footer">
-		<div class="container debugBorder">
-			<div class="row">
-				<div class="col-6 col-sm-3">
-					<h6 class="text-uppercase">Topic 1</h6>
-					<ul class="list-unstyled">
-						<li>T1 Item 1</li>
-						<li>T1 Item 2</li>
-						<li>T1 Item 3</li>
-						<li>T1 Item 4</li>
-					</ul>
+	<div id="footer-header">
+		<div class="container-fluid py5">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 text-left">
+						<h4><small>Visit us at </small>DigitalFusionTech.io | DigitalFusionTech.com</h4>	
+					</div>
+					<div class="col-md-4 text-right">
+						<a href="#!" class="btn btn-light-outline">Contact Us</a>
+					</div>
 				</div>
-				<div class="col-6 col-sm-3">
-					<h6 class="text-uppercase">Topic 2</h6>
-					<ul class="list-unstyled">
-						<li>T2 Item 1</li>
-						<li>T2 Item 2</li>
-						<li>T2 Item 3</li>
-						<li>T2 Item 4</li>
-					</ul>
-				</div>
-				<div class="col-6 col-sm-3">
-					<h6 class="text-uppercase">Topic 3</h6>
-					<ul class="list-unstyled">
-						<li>T3 Item 1</li>
-						<li>T3 Item 2</li>
-						<li>T3 Item 3</li>
-						<li>T3 Item 4</li>
-					</ul>
-				</div>
-				<div class="col-6 col-sm-3">
-					<h6 class="text-uppercase">Topic 4</h6>
-					<ul class="list-unstyled">
-						<li>T4 Item 1</li>
-						<li>T4 Item 2</li>
-						<li>T4 Item 3</li>
-						<li>T4 Item 4</li>
-					</ul>
-				</div>
+				
 			</div>
-			<span class="float-right text-muted small"><a href="#">Made by DigitalFacets.io</a> ©2019 Digital Facets</span>
 		</div>
-	</footer>
+	</div>
 	
+	{% block page_footer %}
+		<!-- Footer section of page -->
+		{% include 'includes/footer.html' %}
+	{% endblock %}
 	
 	{% block javascript %}
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
