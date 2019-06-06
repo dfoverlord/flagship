@@ -482,9 +482,15 @@ footer a:hover, a:focus {
 	color: #800000;  /* deep red or RGB(128,0,0) */
 }
 
-.bottom-padding {
+.bottom-padding-major {
 	padding: 75px;
 	padding-top: 70px;
+	width: 100%;
+}
+
+.bottom-padding-minor {
+	padding: 35px;
+	padding-top: 30px;
 	width: 100%;
 }
 

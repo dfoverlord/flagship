@@ -8,13 +8,19 @@ class Profile(models.Model):
     company = models.CharField(max_length=60, blank=True)
     website = models.CharField(max_length=100, blank=True)
     short_bio = models.TextField(max_length=500, blank=True)
-    image = models.ImageField(default='no_photo.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='profile_pics/no_photo.jpg', upload_to='profile_pics/')
     
     def __str__(self):
         return f'{self.user.username} Profile'
     
+    '''
     def save(self):
+    '''
+    def save(self, *args, **kwargs):
+        '''
         super().save()
+        '''
+        super(Profile, self).save(*args, **kwargs)
         
         img = Image.open(self.image.path)
         

@@ -16,7 +16,7 @@
 				<h5 class="wow fadeIn text-normal wow fadeIn">inspiring innovation | creativity | <span class="text-normal-italic"><small>becoming</small></span>&nbsp;multi<span class="wide-space text-emphasize">facet</span>ed<br/><span class="logo-tagline"><small>shaping <span class="text-normal-italic">your</span> digital future in a sustainable way</small></span></h5>
 				{% if user.is_authenticated %}
 					<!-- PUT SOME REAL STUFF IN HERE -->
-					Welcome {{ user.get_username }}
+					<a href="#one" class="btn btn-dark-outline btn-lg wow fadeInUp m-t-3">Go</a>
 				{% else %}
 					<br/>
 					<a href="{% url 'signup' %}" class="btn btn-secondary-outline btn-lg wow fadeInUp m-t-3">Get Started</a>
