@@ -26,6 +26,10 @@ urlpatterns = [
 ]
 
 urlpatterns += [
+    path('gallery/', include('gallery.urls')),
+]
+
+urlpatterns += [
     path('forums/', include('forums.urls')),
 ]
 

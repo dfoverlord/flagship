@@ -100,7 +100,7 @@ class Image(models.Model):
         
     def make_thumbnail(self):
         img = pImage.open(self.data)
-        output_size = (100, 100)
+        output_size = (250, 250)
         img.thumbnail(output_size, pImage.ANTIALIAS)
         
         thumb_name, thumb_extension = os.path.splitext(self.data.name)
@@ -127,7 +127,7 @@ class Image(models.Model):
         """
         set save=FALSE, otherwise it will run in an infinite loop
         """
-        self.thumbnail.save(thumb_filename, ContentFile(temp_thumb.read()), save=False)
+        self.data_thumbnail.save(thumb_filename, ContentFile(temp_thumb.read()), save=False)
         temp_thumb.close()
         
         return True

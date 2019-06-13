@@ -1,0 +1,15 @@
+{% extends 'base_gallery.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+	<style>
+		#image_upload_form {
+			display: inherit;
+		}
+	</style>
+{% endblock %}
+
+{% block page_content %}
+	{% include 'includes/image_upload_form.html' %}
+{% endblock %}

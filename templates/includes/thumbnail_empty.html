@@ -1,0 +1,8 @@
+{% load static %}
+
+<div class="thumbnail">
+	<img id="image_{{ forloop.counter0 }}" class="image empty" alt="{{ album.title }}" data-src="{% static 'img/album.png' %}" style="margin-right: {{ image_margin }}px"/>
+	<div class="overlay">
+		<div class="label"> {{ photobook.title }} </div>
+	</div>
+</div>

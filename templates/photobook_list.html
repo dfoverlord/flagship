@@ -1,0 +1,28 @@
+{% extends 'base_gallery.html' %}
+
+{% load static %}
+
+{% block bar_title %}
+	<div id="title">DF Photobooks</div>
+{% endblock %}
+
+{% block page_content %}
+	<div id="image_container" class="debugBorder">
+		{% for photobook in photobooks_list %}
+			<a href="{% url 'gallery:photobook_detail' photobook.pk photobook.slug %}">
+				{% if photobook.display_highlight %}
+					{% with photobook.display_highlight as image %}
+						 {% include "includes/thumbnail.html" %}
+					{% endwith %}
+				{% else %}
+					{% include "includes/thumbnail_empty.html" %}
+				{% endif %}
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{% static 'js/infinite_scroll.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/justify_images.js' %}"></script>
+{% endblock %}
