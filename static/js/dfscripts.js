@@ -24,6 +24,19 @@
 	$('#galleryModal').on('show.bs.modal', function (e) {
        $('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
     });
+    
+    $('#main').on('click', function(event) {
+    	if (this.hash !== "") {
+    		event.preventDefault();
+    		
+    		var hash = this.hash;
+    		$('html, body').animate({
+    			scrollTop: $(hash).offset().top
+    		}, 1000, function(){
+    			window.location.hash = hash;
+    		});
+    	}
+    });
 
 })(jQuery);
 

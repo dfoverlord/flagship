@@ -71,37 +71,40 @@
 						<div class="row text-center">
 							<div class="col-lg-4 mb-4">
 								<div class="card h-100 bg-light">
-									<!-- Placeholder for image 1 -->
-									<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
+									<div class="container featured-image">
+										<img class="card-img-top img-fluid" src="{% static 'img/digitalfacets_blog_v1_1000x1000.png' %}">
+									</div>
 									<div class="card-body d-flex flex-column justify-content-center align-items-center">
 										<h1 class="display-2"><span class="ion ion-ios-snow-outline"></span></h1>
-										<h5 class="card-title"><strong>Section 1</strong></h5>
-										<p class="card-text">Some section 1 text here</p>
-										<a href="#" class="btn btn-info mt-auto">Section 1 Button</a>
+										<h5 class="card-title">Featured Item: <strong>DF Blog</strong></h5>
+										<p class="card-text">Stay up to date on the latest from Digital Facets!</p>
+										<a href="#four" class="btn btn-info mt-auto">Read More</a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-4 mb-4">
 								<div class="card h-100 bg-light">
-									<!-- Placeholder for image 2 -->
-									<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
+									<div class="container featured-image">
+										<img class="card-img-top img-fluid" src="{% static 'img/digitalfacets_portfolio_v1_888x1000.png' %}">
+									</div>
 									<div class="card-body d-flex flex-column justify-content-center align-items-center">
 										<h1 class="display-2"></h1>
-										<h5 class="card-title"><strong>Section 1</strong></h5>
-										<p class="card-text">Some section 2 text here</p>
-										<a href="#" class="btn btn-info mt-auto">Section 2 Button</a>
+										<h5 class="card-title">Featured Item: <strong>Portfolio</strong></h5>
+										<p class="card-text">Get an in-depth look at some key projects we have been involved in.</p>
+										<a href="#two" class="btn btn-info mt-auto">Read More</a>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-4 mb-4">
 								<div class="card h-100 bg-light">
-									<!-- Placeholder for image 3 -->
-									<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
+									<div class="container featured-image">
+										<img class="card-img-top img-fluid" src="{% static 'img/digitalfacets_camera_v1_703x1000.png' %}">
+									</div>
 									<div class="card-body d-flex flex-column justify-content-center align-items-center">
 										<h1 class="display-2"></h1>
-										<h5 class="card-title"><strong>Section 1</strong></h5>
-										<p class="card-text">Some section 3 text here</p>
-										<a href="#" class="btn btn-info mt-auto">Section 3 Button</a>
+										<h5 class="card-title">Featured Item: <strong>Photography</strong></h5>
+										<p class="card-text">Looking for a photographer to shoot your next public/private event? Perhaps a (sit-down) portrait session in a more informal setting?</p>
+										<a href="#five" class="btn btn-info mt-auto">Read More</a>
 									</div>
 								</div>
 							</div>
@@ -127,7 +130,7 @@
 						<div class="feature">
 							<h6 class="text-uppercase">Project 1</h6>
 							<p class="text-muted m-b-0">A brief introductory to project 1 should be included here.</p>
-							<a href="#" class="btn btn-dark mt-auto">Read More</a>
+							<a href="#!" class="btn btn-dark mt-auto">Read More</a>
 						</div>
 					</div>
 					
@@ -135,7 +138,7 @@
 						<div class="feature">
 							<h6 class="text-uppercase">Project 2</h6>
 							<p class="text-muted m-b-0">A brief introductory to project 2 should be included here.</p>
-							<a href="#" class="btn btn-dark mt-auto">Read More</a>
+							<a href="#!" class="btn btn-dark mt-auto">Read More</a>
 						</div>
 					</div>
 					
@@ -143,7 +146,7 @@
 						<div class="feature">
 							<h6 class="text-uppercase">Project 3</h6>
 							<p class="text-muted m-b-0">A brief introductory to project 3 should be included here.</p>
-							<a href="#" class="btn btn-dark mt-auto">Read More</a>
+							<a href="#!" class="btn btn-dark mt-auto">Read More</a>
 						</div>
 					</div>
 					
@@ -151,7 +154,7 @@
 						<div class="feature">
 							<h6 class="text-uppercase">Project 4</h6>
 							<p class="text-muted m-b-0">A brief introductory to project 4 should be included here.</p>
-							<a href="#" class="btn btn-dark mt-auto">Read More</a>
+							<a href="#!" class="btn btn-dark mt-auto">Read More</a>
 						</div>
 					</div>
 				</div>
@@ -178,7 +181,7 @@
 								<h1 class="display-2"></h1>
 								<h5 class="card-title"><strong>DF Blog</strong></h5>
 								<p class="card-text">Some blog section 1 text here</p>
-								<a href="#" class="btn btn-dark mt-auto">Read More</a>
+								<a href="#!" class="btn btn-dark mt-auto">Read More</a>
 							</div>
 						</div>
 					</div>
@@ -227,27 +230,35 @@
 			</div>
 			<div class="container wow fadeInUp">
 				<div class="row">
-					<div class="col-lg-6 text-container">
-						<div class="card h-100 bg-dark">
-							<!-- Placeholder for photo section 1 image -->
-							<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
-							<div class="card-body d-flex flex-column justify-content-center align-items-center">
-								<h1 class="display-2"></h1>
-								<h5 class="card-title"><strong>Photo Section 1</strong></h5>
-								<p class="card-text">Some photo section 1 text here</p>
-								<a href="#" class="btn btn-dark-outline mt-auto">Photo Section 1 Button</a>
+					<div class="container col-lg-6">
+						<div class="photo-section-img-box">
+							<img class="card-img-top img-fluid photo-section-image" src="{% static 'img/banner_13_bw_1920x640.jpg' %}">
+						</div>
+						<div class="text-container">
+							<div class="card h-100 bg-dark">
+								<div class="card-body d-flex flex-column justify-content-center align-items-center">
+									<h1 class="display-2"></h1>
+									<h5 class="card-title"><strong>Sample Gallery</strong></h5>
+									<p class="card-text">View a collection of photobooks to get inspired!</p>
+									<button type="button" id="btnPhotoSection1" class="btn btn-dark-outline mt-auto">See More</button>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 text-container">
-						<div class="card h-100 bg-dark">
-							<!-- Placeholder for photo section 2 image -->
-							<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
-							<div class="card-body d-flex flex-column justify-content-center align-items-center">
-								<h1 class="display-2"></h1>
-								<h5 class="card-title"><strong>Photo Section 2</strong></h5>
-								<p class="card-text">Some photo section 2 text here</p>
-								<a href="#" class="btn btn-dark-outline mt-auto">Photo Section 2 Button</a>
+					<div class="container col-lg-6">
+						<div class="photo-section-img-box">
+							<img class="card-img-top img-fluid photo-section-image" src="{% static 'img/banner_14_bw_1920x640.jpg' %}">
+						</div>
+						<div class="text-container">
+							<div class="card h-100 bg-dark">
+								<!-- Placeholder for photo section 2 image -->
+								<!-- <img class="card-img-top img-fluid" src="../img/XXX-320x212.jpg"> -->
+								<div class="card-body d-flex flex-column justify-content-center align-items-center">
+									<h1 class="display-2"></h1>
+									<h5 class="card-title"><strong>Photo Section 2</strong></h5>
+									<p class="card-text">Some photo section 2 text here</p>
+									<a href="#!" class="btn btn-dark-outline mt-auto">Photo Section 2 Button</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -310,6 +321,13 @@
 		
 		<!-- Load custom scripts for project -->
 		<script src="{% static 'js/dfscripts.js' %}"></script>
+		
+		<!-- Custom button action to avoid issue with click events and animated scrolling in dfscripts.js -->
+		<script type="text/javascript">
+			document.getElementById("btnPhotoSection1").onclick = function () {
+				window.location="{% url 'gallery:photobooks_list' %}";
+			};
+		</script>
 	{% endblock %}
 	
 {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock %}
+
+{% block body %}
+	<div class="wrapper">
+		<div id="top_bar">
+			{% block bar_title %}
+				<div id="title">Photobooks</div>
+			{% endblock %}
+			
+			<div id="detail" class="debugBorder">
+				{% block bar_detail %}
+				{%  endblock %}
+			</div>
+		</div>
+		
+		<div id="content" class="debugBorder">
+			{% block page_content %}
+			{% endblock %}
+		</div>
+	</div>
+	
+{% endblock %}

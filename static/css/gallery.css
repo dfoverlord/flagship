@@ -1,21 +1,19 @@
-/* Support for django-admin-sortable2 is provided; add to django project */
-
 /* Main image display block */
 #image_container{
 	position: relative;
-	overflow: auto;
+	top: 50px;
+	/* overflow: auto; */
 }
 
-/* For upload - pulsing drag container on image drag */
 #image_container.highlight:before {
 	animation: pulse 0.5s linear alternate infinite;
 	border: 1px solid;
 	position: absolute;
 	content: '';
 	pointer-events: none;
-	top: 0; 
-	right: 0; 
-	bottom: 0; 
+	top: 0;
+	right: 0;
+	bottom: 0;
 	left: 0;
 	z-index: 1;
 }
@@ -25,49 +23,65 @@
 	to { background: rgba(32,32,32, 0.3); }
 }
 
+#messages_wrapper {
+	position: relative;
+	top: 35px;
+}
+
 /* Hide image upload form as the drag container is used instead */
 #image_upload_form{
     display: none;
 }
 
+#image_detail {
+	position: relative;
+    min-height: auto;
+    text-align: center;
+    width: 100%;
+}
+
+/*
+#image_preview {
+	width: 100%;
+	height: 76.5vh;
+	object-fit: contain;
+}
+*/
+
 #content {
 	position: relative;
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 3.4em 0 6em 0;
 }
 
-#detail {
-	 color: #999999; /* medium silver grey */
-	 float: right;
-	 padding-top: 0.8em;
-	 padding-right: 1.5em;
-}
-
 #title {
-	color: white;
 	/*padding: 0.9em 0 1em 12.8em;*/
 	padding: 0.2em 0.5em 0.5em 2.0em;
 	white-space: nowrap;
 }
 
-#top_bar {
-	width: 100%;
-	height: 2.5em;
-	height: 3.0em;
-	padding: 0.5em;
-	background-color: #111111; /* solid black */
-	position: fixed;
-	z-index: 1;
+#galleryNav
+{
+	background-color: #E8E8E8;  /* white smoke + 2; RGB color is 232,232,232 */
 }
 
-/* Image thumbnail  */
 .thumbnail {
 	float: left;
-	margin-bottom: 2px;
+	margin-bottom: 10px;
+	margin-right: 10px;
 	position: relative;
-	display: none;
+	
+	/*display: none;*/
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+}
+
+.thumbnail_preview {
+	float: left;
+	margin-top: 5px;
+	position: relative;
 	image-rendering: pixelated;
 	image-rendering: -moz-crisp-edges;
 }
@@ -91,14 +105,15 @@
 /* Image thumbnail overlay to add background to title */
 .overlay {
 	position: absolute;
-	width: 100%; 
+	width: 100%;
 	height: 100%;
 	top: 0; 
 	bottom: 0; 
 	left: 0; 
 	right: 0;
 	opacity: 0;
-	transition: all .15s ease-in-out;
+	color: #ffffff !important;
+	transition: all .90s ease-in-out;
 }
 
 .overlay:hover {
@@ -110,8 +125,8 @@
 	position: absolute;
 	bottom: 0;
 	margin: 0 0 1.3em 1em;
-	color: #eeeee; /* light greyish silver; RGB is (238,238,238) */
-	font-size: 1em;
+	color: #eeeeee !important; /* light greyish silver; RGB is (238,238,238) */
+	font-size: 2em;
 	opacity: 0;
 }
 
@@ -130,19 +145,118 @@
 	white-space: nowrap;
 }
 
+#photobook_preview_box {
+	
+}
+
+/*
 #photobook_preview img.image {
 	height: 15vh;
 }
+*/
 
-#image_preview {
-	width: 100%;
-	height: 76.5vh;
-	object-fit: contain;
+#footer {
+
 }
 
-.exif_icon {
-	width: 1em;
-	vertical-align: sub;
-	padding: 0 0.2em 0 0.5em;
-	filter: brightness(70%);
+.navbar {
+    border-color: rgba(35,35,35,.05);  /* light black; RGB value is (35,35,35) */
+    background-color: #fff; /* white; RGB value is (255,255,255) */
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+}
+
+.navbar-brand {
+    color: #007FFF; /* dark sky blue; RGB value is (0,127,255) */
+    padding: 1px;
+    line-height: 1.90em;
+    -webkit-transition: padding .2s ease-in;
+    -moz-transition: padding .2s ease-in;
+    transition: padding .2s ease-in;
+    float:none;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    /* color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    color: #f00;
+}
+
+.navbar .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    /* background-color: #001A33;   medium dark blue; RGB value is (0,26,51) */
+    background-color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+}
+
+.navbar .navbar-toggle, .navbar-default .navbar-collapse {
+    border-color: transparent;
+}
+
+.navbar .navbar-nav > li > a,
+.navbar .navbar-nav > li > a:focus {
+    font-size: 12px;
+    /* color: #001A33;   medium dark blue; RGB value is (0,26,51) */
+    color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+    text-transform: uppercase;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus:hover {
+    /* color: #007FFF;  dark sky blue; RGB value is (0,127,255) */
+    color: #f00;
+}
+
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link.active:focus {
+    color: #ee7600 !important; /* deep orange; RGB value is (255,128,0) */
+    background-color: transparent;
+}
+
+/* responsive nav */
+@media(max-width:48em) {
+    .navbar .navbar-nav>.nav-item {
+        float: none;
+        margin-left: .1rem;
+    }
+    .navbar .navbar-nav {
+        float:none !important;
+    }
+}
+
+@media(min-width:48em) {
+    .navbar {
+        border-color: transparent;
+        background-color: #fff; /* white; RGB value is (255,255,255) */
+        min-height: 60px;
+    }
+
+    .navbar-brand {
+        color: #007FFF;  /* dark sky blue; RGB value is (0,127,255) */
+        float: left;
+        padding-left: 1px;
+    }
+
+    .navbar .navbar-brand:hover,
+    .navbar .navbar-brand:focus {
+        /* color: #001A33;   medium dark blue; RGB value is (0,26,51) */
+        color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+    }
+    
+    .navbar .navbar-nav > li > a,
+    .navbar .navbar-nav > li > a:focus {
+        /* color: #001A33;   medium dark blue; RGB value is (0,26,51) */
+        color: #353A3F; /* deep dark blue; RGB value is (53,58,63) */
+        letter-spacing: 1.1px;
+    }
+
+    .navbar .navbar-nav > li > a:hover,
+    .navbar .navbar-nav > li > a:focus:hover {
+    	/* color: #001A33;   medium dark blue; RGB value is (0,26,51) */
+    	color: #ee7600; /* deep orange; RGB value is (255,128,0) */
+    }
+
+    #topNav {
+    	/* background-color: #fff;   white; RGB value is (255,255,255) */
+    	background-color: #E8E8E8;  /* white smoke + 2; RGB color is 232,232,232 */
+    }   
 }

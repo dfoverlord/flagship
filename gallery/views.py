@@ -99,6 +99,7 @@ class PhotoBookView(DetailView):
         context = super(PhotoBookView, self).get_context_data(**kwargs)
         images = context['photobook'].images.all()
         context['images'] = sorted(images, key=lambda i: i.date_taken)
+        context['images_count'] = images.count()
         return context
     
     

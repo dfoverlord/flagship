@@ -100,7 +100,7 @@ class Image(models.Model):
         
     def make_thumbnail(self):
         img = pImage.open(self.data)
-        output_size = (250, 250)
+        output_size = (350, 350)
         img.thumbnail(output_size, pImage.ANTIALIAS)
         
         thumb_name, thumb_extension = os.path.splitext(self.data.name)

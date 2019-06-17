@@ -3,26 +3,39 @@
 {% load static %}
 
 {% block bar_title %}
-	<div id="title">DF Photobooks</div>
+<div id="title">My Photobooks</div>
 {% endblock %}
 
 {% block page_content %}
-	<div id="image_container" class="debugBorder">
+<div class="row">
+	<div id="image_container" class="col-lg">
 		{% for photobook in photobooks_list %}
 			<a href="{% url 'gallery:photobook_detail' photobook.pk photobook.slug %}">
 				{% if photobook.display_highlight %}
 					{% with photobook.display_highlight as image %}
-						 {% include "includes/thumbnail.html" %}
+						<div class="thumbnail shadow p-3 bg-white rounded">
+							<img id="image_{{ image.pk }}" class="img-fluid" alt="{{ image.title}}" src="{{ image.data_thumbnail.url }}" style="width: {% widthratio image.data_thumbnail.width 10 9 %}px;margin-right: {{ image_margin }}px"/>
+							<div class="overlay">
+								<div class="label"> {{ image.title }} </div>
+							</div>
+						</div>
 					{% endwith %}
 				{% else %}
-					{% include "includes/thumbnail_empty.html" %}
+					<div class="thumbnail shadow p-3 bg-white rounded">
+						<img id="image_{{ forloop.counter0 }}" class="img-fluid empty" alt="{{ photobook.title }}" src="{% static 'img/album.png' %}"/>
+						<div class="overlay">
+							<div class="label"> {{ photobook.title }} </div>
+						</div>
+					</div>
 				{% endif %}
 			</a>
 		{% endfor %}
 	</div>
+</div>
+<div class="container bottom-padding-minor">
+</div>
 {% endblock %}
 
-{% block javascript %}
-	<script type="text/javascript" src="{% static 'js/infinite_scroll.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/justify_images.js' %}"></script>
+{% block page_footer %}
+{% include 'includes/footer.html' %}
 {% endblock %}

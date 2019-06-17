@@ -1,0 +1,31 @@
+{% extends 'base_gallery.html' %}
+
+{% load static %}
+
+{% block bar_title %}
+	<div id="title">Photobooks</div>
+{% endblock %}
+
+{% block page_content %}
+	{% include "includes/image_upload_form.html" %}
+	
+	<div id="image_container" class="debugBorder">
+		{% for image in images_list %}
+			<a href="{% url 'gallery:image_detail' image.pk image.slug %}">
+				{% include "includes/thumbnail.html" %}
+			</a>
+		{% endfor %}
+		
+		{% if not images_list and user.is_authenticated %}
+			<div id="empty_placeholder">
+				Drag images here to upload to the image feed
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{% static 'js/image_upload.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/infinite_scroll.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/justify_images.js' %}"></script>
+{% endblock %}

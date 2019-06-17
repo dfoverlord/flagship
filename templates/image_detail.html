@@ -2,84 +2,92 @@
 
 {% load static %}
 
-{% block title %}
-	{% if photobook %}{{ photobook.title }} - {% endif %}{{ image.title }}
+{% block stylesheet %}
+	<style>
+		#content {
+			padding-bottom: 0;
+			width: 100%;
+		}
+	</style>
 {% endblock %}
 
-{% block stylesheet %}
-	<!-- Override underlying CSS styles -->
-	
+{% block title %}
+{% if photobook %}{{ photobook.title }} - {% endif %}{{ image.title }}
 {% endblock %}
 
 {% block bar_title %}
-	<div id="title">HELP{% if photobook %} {{ photobook.title }} - {% endif %} {{ image.title }}</div>
+<div id="title">{% if photobook %} {{ photobook.title }} - {% endif %} {{ image.title }}</div>
 {% endblock %}
 
-
-{% block bar_detail %}
-Help
-	<!--
-	{% if image.exif.Camera %}
-		<img class="exif_icon" src="{% static 'img/camera.png' %}" title="Camera"/>
-		{{ image.exif.Camera }}
-	{% endif %}
-	{% if image.exif.LensModel %}
-		<img class="exif_icon" src="{% static 'img/lens.png' %}" title="Lens"/>
-		{{ image.exif.LensModel }}
-	{% endif %}
-	{% if image.exif.FocalLengthIn35mmFilm %}
-		<img class="exif_icon" src="{% static 'img/35mm.png' %}" title="Focal Length (35mm)"/>
-		{{ image.exif.FocalLengthIn35mmFilm }}mm
-	{% endif %}
-	{% if image.exif.Aperture %}
-		<img class="exif_icon" src="{% static 'img/aperture.png' %}" title="Aperture"/>
-		F/{{ image.exif.Aperture }}
-	{% endif %}
-	{% if image.exif.Exposure %}
-		<img class="exif_icon" src="{% static 'img/exposure.png' %}" title="Exposure"/>
-		{{ image.exif.Exposure }}s		
-	{% endif %}
-	{% if image.exif.ISOSpeedRatings %}
-		<img class="exif_icon" src="{% static 'img/iso.png' %}" title="ISO"/>
-		ISO {{ image.exif.ISOSpeedRatings }}
-	{% endif %}
-	-->
-{%  endblock %}
-
 {% block page_content %}
-	<a href="{{ image.data.url }}">
-		<img id="image_preview" src="{{ image.data.url }}" alt="{{ image.title }}"/>
-	</a>
-	
-	<div id="photobook_preview">
-		{% if photobook_images %}
-			{% for image in photobook_images %}
-				<a href="{% url 'gallery:photobook_image_detail' ppk image.pk image.slug %}#image_{{ image.pk }}" style="display: inline-block;">
-					{% include 'includes/thumbnail_preview.html' %}
-				</a>
-			{% endfor %}
-		{% elif photobooks %}
-			{% for photobook in photobooks_list %}
-				{% with photobook.display_highlight as image %}
-					<a href="{% url 'gallery:photobook_detail' photobook.pk photobook.slug  %}" style="display: inline-block;">
-						{% include 'includes/thumbnail_preview.html' %}
-					</a>
-				{% endwith %}
-			{% endfor %}
-		{% endif %}
+<div class="row">
+	<div id="image_detail" class="col-lg-12 text-center">
+		<a href="{{ image.data.url }}">
+			<img id="image_preview" class="img-fluid" src="{{ image.data.url }}" alt="{{ image.title }}"/>
+		</a>
+		<div id="photobook_preview_box" class="d-inline-flex align-items-center">
+			<ion-icon name="arrow-back" size="large"></ion-icon>
+			<div id="photobook_preview">
+				{% if photobook_images %}
+					{% for image in photobook_images %}
+						<a href="{% url 'gallery:photobook_image_detail' ppk image.pk image.slug %}#image_{{ image.pk }}" style="display: inline-block;">
+							<div class="thumbnail_preview" style="display: block">
+								<img id="image_{{ image.pk }}" class="img-fluid" alt="{{ image.title}}" src="{{ image.data_thumbnail.url }}"/>
+								<div class="overlay">
+									<div class="label preview"> {{ image.title }} </div>
+								</div>
+							</div>
+						</a>
+					{% endfor %}
+				{% elif photobooks %}
+					{% for photobook in photobooks %}
+						{% with photobook.display_highlight as image %}
+							<a href="{% url 'gallery:photobook_detail' photobook.pk photobook.slug  %}" style="display: inline-block;">
+								<div class="thumbnail_preview" style="display: block">
+									<img id="image_{{ image.pk }}" class="img-fluid" alt="{{ image.title}}" src="{{ image.data_thumbnail.url }}"/>
+									<div class="overlay">
+										<div class="label preview"> {{ image.title }} </div>
+									</div>
+								</div>
+							</a>
+						{% endwith %}
+					{% endfor %}
+				{% endif %}
+			</div>
+			<ion-icon name="arrow-forward" size="large"></ion-icon>
+		</div>
 	</div>
+</div>
 {% endblock %}
 
 {% block javascript %}
-	<!-- Inline JScript to determine previous and next image urls -->
-	<script type="text/javascript">
-		{% if previous_image %}
-			previous_image_url = "{% url 'gallery:photobook_image_detail' ppk previous_image.pk previous_image.slug %}#image_{{ previous_image.pk }}";
-		{% endif %}
-		
-		{% if next_image %}
-			next_image_url = "{% url 'gallery:photobook_image_detail' ppk next_image.pk next_image.slug %}#image_{{ next_image.pk }}";
-		{% endif %}
-	</script>
-	<script type="text/javascript" src="{% static 'js/image_navigation.js' %}"></script>
+<!-- Inline JScript to determine previous and next image urls -->
+<script type="text/javascript">
+	{% if previous_image %}
+		previous_image_url = "{% url 'gallery:photobook_image_detail' ppk previous_image.pk previous_image.slug %}#image_{{ previous_image.pk }}";
+	{% endif %}
+	
+	{% if next_image %}
+		next_image_url = "{% url 'gallery:photobook_image_detail' ppk next_image.pk next_image.slug %}#image_{{ next_image.pk }}";
+	{% endif %}
+	
+	/* Provide navigation keys to change the current image */
+	var left = 37; var right = 39;
+	document.addEventListener("keydown", function(event) {
+		switch(event.which) {
+			case left:
+				if (previous_image_url) {
+					window.location.href = previous_image_url;
+				}
+			break;
+			case right:
+				if (next_image_url) {
+					window.location.href = next_image_url;
+				}
+			break;
+			default: return;
+		}
+		event.preventDefault();
+	});
+</script>
 {% endblock %}

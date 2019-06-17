@@ -9,5 +9,5 @@ urlpatterns = [
     path('image/<int:pk>/<slug>', ImageView.as_view(), name='image_detail'),
     path('upload/', ImageCreate.as_view(), name='image_upload'),
     path('photobook/<int:pk>/<slug>/', PhotoBookView.as_view(), name='photobook_detail'),
-    path('photobook/<int:apk>/<int:pk>/<slug>', ImageView.as_view(), name='photobook_image_detail')
+    path('photobook/<int:ppk>/<int:pk>/<slug>', ImageView.as_view(), name='photobook_image_detail')
 ]

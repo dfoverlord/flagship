@@ -1,31 +1,67 @@
-{% extends 'base.html' %}
-
-{% load static %}
-
-{% block title %}
-{% endblock %}
-
-{% block stylesheet %}
-	<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
-{% endblock %}
-
-{% block body %}
-	<div class="wrapper">
-		<div id="top_bar">
-			{% block bar_title %}
-				<div id="title">Photobooks</div>
-			{% endblock %}
-			
-			<div id="detail" class="debugBorder">
-				{% block bar_detail %}
-				{%  endblock %}
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}Digital Facets{% endblock %}</title>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Lato&display=swap&text=Digital%20Facets" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/app.css' %}">
+		<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+		{% block stylesheet %}
+		{% endblock %}
+		{% block head %}
+		{% endblock %}
+	</head>
+	<body>
+		{% block body %}
+			<!-- Header -->
+			<nav id="galleryNav" class="navbar navbar-expand-lg fixed-top">
+				<div class="container">
+					<img class="img-fluid" alt='' width=39 height=55 src="{% static 'img/digitalfacets_logo_v1_500x505.png' %}">&nbsp;&nbsp;
+					<a class="navbar-brand" href="{% url 'home' %}">Digital Facets</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#galleryMenu" aria-controls="galleryMenu" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="galleryMenu">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								{% block bar_title %}
+									<div id="title">Photobooks</div>
+								{% endblock %}
+							</li>
+						</ul>
+						
+						<!-- Show/Hide personal menu -->
+						{% include 'includes/auth_menu.html' %}
+					</div>
+				</div>
+			</nav>
+			<!-- End Header -->
+			<div class="wrapper">
+				<!-- Body -->
+					<div id="content" class="container">
+						{% block page_content %}
+						{% endblock %}
+					</div>
+				<!-- End Body -->
+				<!-- Footer -->
+				{% block page_footer %}
+				{% endblock %}
+				<!--End Footer -->
 			</div>
-		</div>
+		{% endblock body %}
 		
-		<div id="content" class="debugBorder">
-			{% block page_content %}
-			{% endblock %}
-		</div>
-	</div>
-	
-{% endblock %}
+		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js"></script>
+		<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+				
+		{% block javascript %}
+		{% endblock %}
+	</body>
+</html>
