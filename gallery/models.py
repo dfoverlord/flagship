@@ -15,6 +15,7 @@ class Image(models.Model):
     data = models.ImageField(upload_to='images')
     data_thumbnail = models.ImageField(upload_to='thumbs', editable=False)
     date_upload = models.DateTimeField(auto_now_add=True)
+    caption = models.CharField(max_length=60, blank=True)
     
     @cached_property
     def slug(self):

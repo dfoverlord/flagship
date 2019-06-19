@@ -3,7 +3,7 @@
 {% load static auth_extras %}
 
 {% block bar_title %}
-<div id="title"> {{ photobook.title }} </div>
+<div id="title"><a href="{% url 'gallery:photobooks_list' %}"><small>PhotoBooks</small></a> - {{ photobook.title }}</div>
 {% endblock %}
 
 {% block page_content %}

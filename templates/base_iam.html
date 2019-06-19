@@ -5,7 +5,7 @@
 {% block body %}
 	<div class="container-fluid">
 		<h1 class="text-center logo my-4">
-			<a href="{% url 'home' %}">Digital Facets</a>
+			<a href="{% url 'pages:home' %}">Digital Facets</a>
 		</h1>
 		{% block breadcrumb %}
 		{% endblock %}
@@ -16,4 +16,7 @@
 	</div>
 	{% block page_footer %}
 	{% endblock page_footer %}
+{% endblock %}
+
+{% block javascript %}
 {% endblock %}

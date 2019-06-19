@@ -9,7 +9,7 @@ class PasswordChangeTests(TestCase):
         username = 'jack'
         password = 'C4@n63Th!sP@55w0rdN0w'
         User.objects.create_user(username=username, email='jack@sparrow.com', password=password)
-        url = reverse('password_change')
+        url = reverse('pages:password_change')
         self.client.login(username=username, password=password)
         self.response = self.client.get(url)
         
@@ -44,8 +44,8 @@ class PasswordChangeTests(TestCase):
 class LoginRequiredPasswordChangeTests(TestCase):
     ''' A test case to verify redirection '''
     def test_redirection(self):
-        url = reverse('password_change')
-        login_url = reverse('login')
+        url = reverse('pages:password_change')
+        login_url = reverse('pages:login')
         response = self.client.get(url)
         self.assertRedirects(response, f'{login_url}?next={url}')
         
@@ -57,7 +57,7 @@ class PasswordChangeTestCase(TestCase):
     '''
     def setUp(self, data={}):
         self.user = User.objects.create_user(username='jack', email='jack@sparrow.com', password='old_password')
-        self.url = reverse('password_change')
+        self.url = reverse('pages:password_change')
         self.client.login(username='jack', password='old_password')
         self.response = self.client.post(self.url, data)
         

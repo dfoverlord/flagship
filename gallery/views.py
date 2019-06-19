@@ -54,7 +54,7 @@ class ImageList(ListView):
     
 class ImageCreate(LoginRequiredMixin, FormView):
     
-    login_url = reverse_lazy('login')
+    login_url = reverse_lazy('pages:login')
     form_class = ImageCreateForm
     template_name = 'image_upload.html'
     

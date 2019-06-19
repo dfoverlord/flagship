@@ -21,9 +21,9 @@
         $('.navbar-toggler:visible').click();
     });
 	
-	$('#galleryModal').on('show.bs.modal', function (e) {
-       $('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
-    });
+	//$('#galleryModal').on('show.bs.modal', function (e) {
+    //   $('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
+    //});
     
     $('#main').on('click', function(event) {
     	if (this.hash !== "") {

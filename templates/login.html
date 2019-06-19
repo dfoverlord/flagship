@@ -8,20 +8,38 @@
 			<div class="card">
 				<div class="card-body">
 					<h3 class="card-title">Sign In</h3>
-					<form method="post" novalidate>
+					<form id="loginform" method="post" novalidate>
 						{% csrf_token %}
 						<input type="hidden" name="next" value="{{ next }}">
 						{% include 'includes/form.html' %}
 						<button type="submit" class="btn btn-info btn-block">Sign In</button>
+						
+						<!-- Google RECAPTCHA Implementation --!>
+						<input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+						<script src='https://www.google.com/recaptcha/api.js?render={{ RECAPTCHA_SITE_KEY }}'></script>
+						<script type="text/javascript">
+							grecaptcha.ready(function() {
+								$('#loginform').submit(function(e){
+									var form = this;
+									e.preventDefault()
+									grecaptcha.execute('{{ RECAPTCHA_SITE_KEY }}', {action: 'login'}).then(function(token) {
+										$('#g-recaptcha-response').val(token)
+										form.submit()
+									});
+								})
+							});
+						</script>
+						<!-- End Google RECAPTCHA Implementation -->
+						
 					</form>
 				</div>
 				<div class="card-footer text-muted text-center">
-					New to the site? <a href="{% url 'signup' %}">Sign Up</a>
+					New to the site? <a href="{% url 'pages:signup' %}">Sign Up</a>
 				</div>
 			</div>
 			<div class="text-center py-2">
 				<small>
-					<a href="{% url 'password_reset' %}" class="text-muted">Forgot your password?</a>
+					<a href="{% url 'pages:password_reset' %}" class="text-muted">Forgot your password?</a>
 				</small>
 			</div>
 		</div>

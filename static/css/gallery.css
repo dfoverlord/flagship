@@ -145,15 +145,23 @@
 	white-space: nowrap;
 }
 
+
+
+
+/*
 #photobook_preview_box {
 	
 }
 
-/*
+
 #photobook_preview img.image {
 	height: 15vh;
 }
 */
+
+#modalGallery {
+	background-image: url(../img/cream_pixels.png);
+}
 
 #footer {
 

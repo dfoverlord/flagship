@@ -3,7 +3,7 @@ from django.urls import resolve, reverse
 
 class HomeTests(TestCase):
     def setUp(self):
-        url = reverse('home')
+        url = reverse('pages:home')
         self.response = self.client.get(url)
 
     ''' A test case to verify that response code is "200" '''

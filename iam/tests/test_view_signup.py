@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UsernameField
 
 class SignUpTests(TestCase):
     def setUp(self):
-        url = reverse('signup')
+        url = reverse('pages:signup')
         self.response = self.client.get(url)
      
     ''' A test case to check for a return status code of '200' '''   
@@ -51,7 +51,7 @@ class SignUpTests(TestCase):
         
 class SuccessfulSignUpTests(TestCase):
     def setUp(self):
-        url = reverse('signup')
+        url = reverse('pages:signup')
         data = {
             'username': 'jack',
             'email': 'jack@sparrow.com',
@@ -59,7 +59,7 @@ class SuccessfulSignUpTests(TestCase):
             'password2': 'C4@n63Th!sP@55w0rdN0w',
         }
         self.response = self.client.post(url, data)
-        self.home_url = reverse('home')
+        self.home_url = reverse('pages:home')
     
     ''' A test case to check that user is redirected to home page after a valid form submission '''
     def test_redirection(self):
@@ -79,7 +79,7 @@ class SuccessfulSignUpTests(TestCase):
 
 class InvalidSignUpTests(TestCase):
     def setUp(self):
-        url = reverse('signup')
+        url = reverse('pages:signup')
         self.response = self.client.post(url, {})  # submit an empty dictionary
         
     ''' A test case to confirm that an invalid form submission should return to the same page '''

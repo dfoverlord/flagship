@@ -5,20 +5,20 @@
 				{{ user.username }}
 			</a>
 			<div class="dropdown-menu dropdown-menu-right w-auto shadow p-0" id="navbarDropdown" aria-labelledby="userMenu">
-				<a class="dropdown-item d-flex flex-nowrap align-items-center px-0 py-3" href="{% url 'my_profile' %}">
+				<a class="dropdown-item d-flex flex-nowrap align-items-center px-0 py-3" href="{% url 'pages:my_profile' %}">
 					<div class="flex-shrink-1 text-center px-3"><ion-icon size="small" name="ios-person"></ion-icon></div>
 					<div class="pl-0 pr-4">
 						<h6 class="mb-0">My Profile</h6> <small>View your profile and settings</small>
 					</div>
 				</a>
-				<a class="dropdown-item d-flex flex-nowrap align-items-center px-0 py-3" href="{% url 'password_change' %}">
+				<a class="dropdown-item d-flex flex-nowrap align-items-center px-0 py-3" href="{% url 'pages:password_change' %}">
 					<div class="flex-shrink-1 text-center px-3"><ion-icon size="small" name="ios-lock"></ion-icon></div>
 					<div class="pl-0 pr-4">
 						<h6 class="mb-0">Change Password</h6> <small>Reset your password</small>
 					</div>
 				</a>	
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item d-flex flex-nowrap align-items-center px-0 py-3" href="{% url 'logout' %}">
+				<a class="dropdown-item d-flex flex-nowrap align-items-center px-0 py-3" href="{% url 'pages:logout' %}">
 					<div class="flex-shrink-1 text-center px-3"><ion-icon size="small" name="ios-log-out"></ion-icon></div>
 					<div class="pl-0 pr-4">
 						<h6 class="mb-0">Logout</h6> <small>Sign out</small>
@@ -29,7 +29,7 @@
 	</ul>			
 {% else %}
 	<form class="form-inline ml-auto">
-		<a href="{% url 'signup' %}" class="btn btn-secondary-outline btn-sm">Sign up</a>
-		<a href="{% url 'login' %}" class="btn btn-light-outline btn-sm ml-2">Log in</a>
+		<a href="{% url 'pages:signup' %}" class="btn btn-secondary-outline btn-sm">Sign up</a>
+		<a href="{% url 'pages:login' %}" class="btn btn-light-outline btn-sm ml-2">Log in</a>
 	</form>
 {% endif %}

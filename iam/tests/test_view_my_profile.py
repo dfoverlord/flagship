@@ -16,7 +16,7 @@ class MyProfileTestCase(TestCase):
         self.password = '123abc'
         User = get_user_model()
         self.user = User.objects.create_user(username=self.username, email='jack@sparrow.com', password=self.password)
-        self.url = reverse('my_profile')
+        self.url = reverse('pages:my_profile')
         
         
 class MyProfileTests(MyProfileTestCase):
@@ -78,8 +78,8 @@ class MyProfileTests(MyProfileTestCase):
 class LoginRequiredMyProfileTests(TestCase):
     ''' A test case to validate redirection '''
     def test_redirection(self):
-        url = reverse('my_profile')
-        login_url = reverse('login')
+        url = reverse('pages:my_profile')
+        login_url = reverse('pages:login')
         response = self.client.get(url)
         self.assertRedirects(response, '{login_url}?next={url}'.format(login_url=login_url, url=url))
 

@@ -16,13 +16,13 @@
 {% endblock %}
 
 {% block bar_title %}
-<div id="title">{% if photobook %} {{ photobook.title }} - {% endif %} {{ image.title }}</div>
+<div id="title">{% if photobook %}<a href="{% url 'gallery:photobooks_list' %}"><small>PhotoBooks</small></a> - <a href="{% url 'gallery:photobook_detail' photobook.pk photobook.slug  %}"><small>{{ photobook.title }}</small></a> - {% endif %}{{ image.title }}</div>
 {% endblock %}
 
 {% block page_content %}
 <div class="row">
 	<div id="image_detail" class="col-lg-12 text-center">
-		<a href="{{ image.data.url }}">
+		<a href="#galleryModal" data-toggle="modal" data-src="{{ image.data.url }}" data-id="{{ image.title }}" data-alt="{{ image.caption }}">
 			<img id="image_preview" class="img-fluid" src="{{ image.data.url }}" alt="{{ image.title }}"/>
 		</a>
 		<div id="photobook_preview_box" class="d-inline-flex align-items-center">
@@ -42,7 +42,7 @@
 				{% elif photobooks %}
 					{% for photobook in photobooks %}
 						{% with photobook.display_highlight as image %}
-							<a href="{% url 'gallery:photobook_detail' photobook.pk photobook.slug  %}" style="display: inline-block;">
+							<a href="{% url 'gallery:photobook_detail' photobook.pk photobook.slug %}" style="display: inline-block;">
 								<div class="thumbnail_preview" style="display: block">
 									<img id="image_{{ image.pk }}" class="img-fluid" alt="{{ image.title}}" src="{{ image.data_thumbnail.url }}"/>
 									<div class="overlay">
@@ -57,6 +57,32 @@
 			<ion-icon name="arrow-forward" size="large"></ion-icon>
 		</div>
 	</div>
+</div>
+<div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div id="modalGallery" class="modal-content">
+            <div class="modal-body text-center">
+            	<div class="container-fluid">
+	            	<div class="row">
+	            		<div class="col-12">
+			                <img src="" id="galleryImage" class="center-block img-fluid">
+		                </div>
+                	</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            	<div class="container">
+            		<div class="float-left mh-100 text-primary" style="height: 40px;">
+            			<span id="galleryImageName"></span><br/>
+            			<small><span id="galleryImageCaption"></span></small>
+            		</div>
+            		<div class="float-right">
+	            		<button class="btn btn-secondary-outline btn-lg" data-dismiss="modal" aria-hidden="true">Close <ion-icon name="close"></ion-icon></button>
+	            	</div>
+            	</div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
@@ -88,6 +114,13 @@
 			default: return;
 		}
 		event.preventDefault();
+	});
+	
+	<!-- JQuery to load gallery Modal w/ the active photo -->
+	$('#galleryModal').on('show.bs.modal', function (e) {
+		$('#galleryImage').attr("src",$(e.relatedTarget).data("src"));
+		$('#galleryImageName').text($(e.relatedTarget).data("id"));
+		$('#galleryImageCaption').text($(e.relatedTarget).data("alt"));
 	});
 </script>
 {% endblock %}

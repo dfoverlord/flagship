@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
     
     'rest_framework',
     'widget_tweaks',
@@ -96,6 +97,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
+                'flagship.context_processors.recaptcha_site_key',
             ],
         },
     },
@@ -181,11 +184,15 @@ else:
     MEDIA_URL = '/media/'
     # MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR), 'media')
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    
+    
+GOOGLE_RECAPTCHA_SITE_KEY = config('GOOGLE_RECAPTCHA_SITEKEY', default='')
+GOOGLE_RECAPTCHA_SECRET_KEY = config('GOOGLE_RECAPTCHA_SECRETKEY', default='')
 
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = 'pages:login'
+LOGIN_REDIRECT_URL = 'pages:home'
+LOGOUT_REDIRECT_URL = 'pages:home'
 
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST', default='')
@@ -200,3 +207,6 @@ EMAIL_SUBJECT_PREFIX = '[Digital Facets Flagship] '
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
+
+# Enable the default site framework
+SITE_ID = 1
